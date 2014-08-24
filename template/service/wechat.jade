@@ -1,0 +1,96 @@
+mixin send_message(message)
+	xml
+		ToUserName <![CDATA[{{request.xml.FromUserName}}]]>
+		FromUserName <![CDATA[{{request.xml.ToUserName}}]]>
+		CreateTime= now.format('%s')
+		MsgType text
+		Content <![CDATA[{{message}}]]>
+		FuncFlag 0
+		
+mixin send_posts(posts)
+	posts = posts[:5]
+	xml
+		ToUserName <![CDATA[{{request.xml.FromUserName}}]]>
+		FromUserName <![CDATA[{{request.xml.ToUserName}}]]>
+		CreateTime= now.format('%s')
+		MsgType news
+		ArticleCount= posts.length
+		Articles
+			for post in posts
+				item
+					Title <![CDATA[{{post.title}}]]>
+					Description <![CDATA[{{post.content.limit(80).no_pic_no_html}}]]>
+					img_get_vars = 'width=360&height=200&outbound_link_password='+get_outbound_link_password(days=7)
+					if post.cover
+						PicUrl <![CDATA[http://{{site._domain}}{{post.cover}}?{{img_get_vars}}]]>
+					elif loop.index==1
+						PicUrl <![CDATA[http://{{site._domain}}/farbox_free_image.jpg?{{img_get_vars}}]]>
+					Url <![CDATA[http://{{site._domain}}{{post.url}}#main]]>
+
+
+if reply
+	+send_message(reply)
+else
+	msg_type = request.xml.MsgType
+	message = request.xml.Content or request.xml.Recognition or ''
+	finnal_message = ''
+	if message == '最近' or message.lower() in ['recently', 'recent'] or message.startswith('搜索 ') or message.lower().startswith('search ')
+		if message == '最近' or message.lower() in ['recently', 'recent']
+			posts_to_push = get_data(type='post', limit=4, with_page=False)
+		else
+			if message.startswith('搜索 ')
+				keywords = message.replace('搜索 ', '', 1)
+			else
+				keywords = message[7:]
+			posts_to_push = get_data(type='post', keywords=keywords, with_page=False, limit=5)
+		if posts_to_push
+			+send_posts(posts_to_push)
+		else
+			+send_message('Sorry, there is no post for now.')
+	elif message.lower() in ['help', '帮助']
+		+send_message('Please visit https://www.farbox.com/service/pages/wx')
+	elif message.lower() == 'time'
+		+set_var('record_time', True)
+		+send_message('OK, new contents will have a timestamp, input `notime` to cancel it.')
+	elif message.lower() in ['notime', 'no time']
+		+set_var('record_time', False)
+		+send_message('OK, new contents without a timestamp.')
+	elif message.lower() == 'today'
+		+set_var('post_path', '')
+		post_filename = now.format('%Y-%m-%d.txt')
+		+send_message('OK, save contents to %s ' % post_filename)
+	elif message.lower().startswith('image_to ')
+		image_path = message[9:].strip(' /\\')
+		if len(image_path) > 20
+			+send_message('should less than 20 letters')
+		else
+			+set_var('image_path', image_path)
+			+send_message('OK, will not insert new images to a post and save them to %s, input `reset_image` to reset.' % image_path)
+	elif message.lower() in ['reset_image', 'reset-image']
+			+set_var('image_path', '')
+			+send_message('OK, image_path reseted.')
+	elif message.lower().startswith('new ')
+		post_filename = message[4:]+'.txt'
+		if len(message)>20
+			+send_message('Failed, the title is too long, please try again.')
+		else
+			+set_var('post_path', post_filename)
+			+send_message('OK, will save new contents to %s; input `today` to reset.' % post_filename)
+	else
+		if msg_type == 'image'
+			image_path = get_var('image_path')
+			filename = '/%s/%s/%s.jpg' % (image_path or '_image/weixin', now.format('%Y-%m-%d'), request.xml.MsgId or request.xml.CreateTime)
+			+put(filename, from_url=request.xml.PicUrl)
+			if not image_path
+				message = '![Image](%s)' % filename
+			else
+				finnal_message = 'saved to %s' % filename
+		if message
+			if get_var('record_time')
+				message = '%s %s'%(now.format('%Y-%m-%d %H:%M:%S'), message)
+			post_filename = get_var('post_path') or now.format('%Y-%m-%d.txt')
+			+append(post_filename, message, lines=2, check=True)
+			+send_message('saved to '+post_filename)
+		else
+			+send_message(finnal_message or 'This type is not supported yet.')
+

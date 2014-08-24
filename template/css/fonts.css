@@ -1,0 +1,97 @@
+@font-face {
+	font-family: Roboto;
+	src: url('../fonts/Roboto-Regular.ttf');
+}
+@font-face {
+	font-family: forte-mt;
+	src: url('../fonts/forte-mt.ttf');
+}
+@font-face {
+	font-family: 'cola_icon';
+	src:url('../fonts/cola_icon.eot?-54fria');
+	src:url('../fonts/cola_icon.eot?#iefix-54fria') format('embedded-opentype'),
+		url('../fonts/cola_icon.woff?-54fria') format('woff'),
+		url('../fonts/cola_icon.ttf?-54fria') format('truetype'),
+		url('../fonts/cola_icon.svg?-54fria#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'cola_icon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.icon-arrow_down:before {
+	content: "\e600";
+}
+.icon-arrow_left:before {
+	content: "\e601";
+}
+.icon-arrow_right:before {
+	content: "\e602";
+}
+.icon-arrow_up:before {
+	content: "\e603";
+}
+.icon-arrow2_down:before {
+	content: "\e604";
+}
+.icon-arrow2_left:before {
+	content: "\e605";
+}
+.icon-arrow2_right:before {
+	content: "\e606";
+}
+.icon-arrow2_up:before {
+	content: "\e607";
+}
+.icon-cat_book:before {
+	content: "\e608";
+}
+.icon-cat_dream:before {
+	content: "\e609";
+}
+.icon-cat_food:before {
+	content: "\e60a";
+}
+.icon-cat_geek:before {
+	content: "\e60b";
+}
+.icon-cat_humor:before {
+	content: "\e60c";
+}
+.icon-cat_life:before {
+	content: "\e60d";
+}
+.icon-cat_media:before {
+	content: "\e60e";
+}
+.icon-cat_photo:before {
+	content: "\e60f";
+}
+.icon-cat_translate:before {
+	content: "\e610";
+}
+.icon-icon_book:before {
+	content: "\e611";
+}
+.icon-icon_clock:before {
+	content: "\e612";
+}
+.icon-icon_menu:before {
+	content: "\e613";
+}
+.icon-icon_qr:before {
+	content: "\e614";
+}
+.icon-icon_search:before {
+	content: "\e615";
+}

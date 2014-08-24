@@ -1,0 +1,31 @@
+.detail
+	.post
+		.content
+			h1.title= post.title
+			.post_body= post.content
+			.info.clearfix
+				.date
+					.icon-icon_clock
+					span
+						{{post.date.format('%Y-%m-%d %H:%M')}}
+				.visitors
+					.icon-icon_book
+					span
+						{{ post.visits or 0 }}
+				if post.tags
+					.tags
+						for tag in post.tags
+							a(href="/tag/{{tag}}")= tag
+
+		.pager.clearfix
+			if pre_one
+				a.paging.pre(href='{{pre_one.url}}', data-ajax="false")
+					.arrow.icon-arrow2_left
+					span
+						{{ pre_one.title }}
+			if next_one
+				a.paging.next(href='{{next_one.url}}', data-ajax="false")
+					.arrow.icon-arrow2_right
+					span
+						{{ next_one.title }}
+			a.gotop.icon-arrow_up(href="#")

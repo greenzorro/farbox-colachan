@@ -1,0 +1,62 @@
+mixin send_message(message)
+	xml
+		ToUserName <![CDATA[{{request.xml.FromUserName}}]]>
+		FromUserName <![CDATA[{{request.xml.ToUserName}}]]>
+		CreateTime= now.format('%s')
+		MsgType text
+		Content <![CDATA[{{message}}]]>
+		FuncFlag 0
+
+mixin send_posts(posts)
+	posts = posts[:5]
+	xml
+		ToUserName <![CDATA[{{request.xml.FromUserName}}]]>
+		FromUserName <![CDATA[{{request.xml.ToUserName}}]]>
+		CreateTime= now.format('%s')
+		MsgType news
+		ArticleCount= posts.length
+		Articles
+			for post in posts
+				item
+					Title <![CDATA[{{post.title}}]]>
+					Description <![CDATA[{{post.content.limit(80).no_pic_no_html}}]]>
+					img_get_vars = 'width=360&height=200&outbound_link_password='+get_outbound_link_password(days=7)
+					if post.cover
+						PicUrl <![CDATA[http://{{site._domain}}{{post.cover}}?{{img_get_vars}}]]>
+					elif loop.index==1
+						PicUrl <![CDATA[http://{{site._domain}}/farbox_free_image.jpg?{{img_get_vars}}]]>
+					Url <![CDATA[http://{{site._domain}}{{post.url}}#main]]>
+
+
++set_no_inject()
+
+if request.method == 'GET' and request.args.set_token == 'true' and request.args.token
+	+need_admin()
+	+set_var('weixin_token', request.args.token)
+	| ok, your weixin token was saved.
+
+rv = request.args
+if rv.nonce and rv.timestamp
+	weixin_token = get_var('weixin_token') or site.configs.weixin_token or 'farbox'
+	if rv.signature != get_hash(weixin_token, rv.nonce, rv.timestamp, hashlib='sha1')
+		+raise_404()
+	if timestamp_diff(rv.timestamp)>120
+		+raise_404()
+
+	if request.method == 'GET'
+		| {{ request.args.echostr }}
+	else
+		msg_type = request.xml.MsgType
+		message = request.xml.Content or request.xml.Recognition or ''
+		if msg_type == 'event'
+			if request.xml.Event == 'subscribe'
+				+send_message('谢谢订阅《%s》，输入`最近`返回最近文章，其它关键字则自动进行搜索。'%site.title)
+		else
+			if message=='最近'
+				posts_to_push = get_data(type='post', limit=4, with_page=False)
+			elif message
+				posts_to_push = get_data(type='post', keywords=message, with_page=False, limit=5)
+			if posts_to_push
+				+send_posts(posts_to_push)
+			else
+				+send_message('抱歉，暂未找到对应内容')

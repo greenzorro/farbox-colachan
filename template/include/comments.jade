@@ -1,0 +1,54 @@
+#fb_comments_container
+	if site.configs.disqus
+		#disqus_thread
+		script(type="text/javascript")
+			var disqus_shortname = '{{ site.configs.disqus }}';
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+	elif site.configs.duoshuo
+		.ds-thread
+		script(type="text/javascript")
+			var duoshuoQuery = {short_name:"{{ site.configs.duoshuo }}"};
+			(function() { var ds = document.createElement('script'); ds.type = 'text/javascript';ds.async = true;
+			ds.src = '//static.duoshuo.com/embed.js';ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+			})();
+	else
+		if not site.configs.scripts_for_doc and not site.comment_script and is_comment_allowed(context_doc)
+			link(rel="stylesheet", href="{{ resource_host }}/css/comment.css?version={{ resource_version }}")
+			ul#fb_comments
+				for comment in comments
+					li.comment
+						.avatar
+							img(src="/service/static_3rd/avatar/{{ comment.email_md5 }}")
+						.c_content.comment_body
+							.author
+								a(href="{{comment.site or '#'}}", rel="external nofollow")
+									b= comment.author or 'Anonymous'
+								small= comment.date
+							.comment_content= comment.content
+			form#fb_new_comment(method="post", action="#fb_new_comment")
+				textarea(name="content")= raw_comment.content
+				if raw_comment.error
+					span.comment_error= raw_comment.error
+				.input_body
+					ul
+						if not request.is_login
+							li
+								label Name:
+								input(type="text", name="author", value=raw_comment.author)
+							li
+								label Email:
+								input(type="text", name="email", value=raw_comment.email)
+							li
+								label Site:
+								input(type="text", name="site", value=raw_comment.site)
+						li
+							input#c_submit(type="submit", value="Comment", class="c_button")
+		elif site.comment_script
+			|{{ site.comment_script }}
+		else
+			//scripts_for_doc

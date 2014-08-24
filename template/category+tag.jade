@@ -1,0 +1,13 @@
+extends base
+block title
+	title= request.args.s or tags.join('+') or category.title
+
+block header
+	include include/header
+block footer
+	include include/footer
+block content
+	if request.path.strip('/') == 'category'
+		+redirect('/categories')
+	else
+		include include/posts_list

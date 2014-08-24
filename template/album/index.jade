@@ -1,0 +1,111 @@
+html
+	is_index = request.path.strip('/')=='album' or request.path.startswith('/album/page')
+	head
+		if is_index
+			title= 'Albums'
+		else
+			title= folder.title or site.title
+		load("pure /template/album/style.scss")
+	body
+		if is_index
+			.body_wrap
+				h1 Albums
+				.home
+					a(href="/") Home
+				ul.albums.pure-g-r
+					if request.path.strip('/')=='album'
+						a_root_photo = get_data(types='image', min_images_count=1, level=1, limit=1, with_page=False)
+						if a_root_photo
+							li.album.pure-u-1-3
+								a(href="/album/~root")
+									.img_container
+										img(src="{{a_root_photo.url}}?width=120&height=120&fixed=true")
+									span.title= site.title
+					for album in get_data(types='folder', min_images_count=1, level=1, limit=60)
+						li.album.pure-u-1-3
+							a(href='/album/{{album.path}}')
+								.img_container
+									img(src="{{album.url}}?width=120&height=120&fixed=true")
+								span.title= album.title
+				include include/paginator.jade
+		else
+			//for album viewer
+			if request.path.startswith('/album/~root')
+				sub_images = get_data(types='image', min_images_count=1, level=1, limit=60, pager_name='this_album', sort='asc')
+				+bread_nav('/~root', prefix='/album', prefix_name='Albums>', split_by='>')
+			else
+				sub_images = get_data(types='folder+image', path=folder.path, min_images_count=1, level=1, limit=60, pager_name='this_album', sort='asc')
+				+bread_nav(folder.path, prefix='/album', prefix_name='Albums>', split_by='>')
+
+			.boxes.pure-g-r
+				.map-box.pure-u-2-3
+					.box-container
+						#map
+
+				for im in sub_images
+					.photo-box.pure-u-1-3
+						.box-container
+							if im.content_type == 'folder'
+								a(href='/album/{{im.path}}')
+									if im.images_count == 1
+										span.sub_folder= '1 photo'
+									else
+										span.sub_folder= '%s photos'%im.images_count
+									img(src="{{ im.url }}?width=320&height=214&fixed=true", alt=im.title)
+									.caption
+										span= im.title
+							else
+								a.fb-image(href="#")
+									img(src="{{ im.url }}?width=320&height=214&fixed=true", alt=im.title)
+									.caption
+										b= im.title
+										span.image-date= im.date.format('%Y-%m-%d %H:%M')
+
+			paginator = get_paginator('this_album')
+			include include/paginator.jade
+
+			div(data-bind="visible: current_window(), template: {name: current_window()}")
+			script#image-viewer(type='text/html')
+				.image-viewer
+					.wrap
+						.head
+							.caption(data-bind="text: current_image().title")
+							.image-info(data-bind="visible:show_exif(),foreach:exif_list")
+								span.exif-field
+									span(data-bind="text:k")
+									|:
+                            		span(data-bind="text:v")
+							.commands
+								a(href="#", data-bind="click: show_full")
+									i.fa.fa-external-link-square
+								a(href="#", data-bind="visible:has_exif(),click: function(){show_exif(!show_exif())}") EXIF
+								a(href="#", data-bind="click: function(){current_window(null)}")
+									i.fa.fa-times-circle-o &nbsp;Close
+						.connected
+							a.pre(href="#", data-bind="click: pre, visible: has_pre()")
+								i.fa.fa-arrow-left
+							a.next(href="#", data-bind="click: next, visible: has_next()")
+								i.fa.fa-arrow-right
+
+						.body
+							.image
+								div(data-bind="click: next")
+									img(data-bind="attr: {src: current_image().url, alt: current_image().title}", onload="$(this).addClass('loaded')")
+
+			if not is_index
+				load("fonts jquery#1.8.1 knockout")
+				//load('http://maps.google.com/maps/api/js?sensor=true')
+				//load('/template/album/js/gmaps.js')
+				load("/template/album/js/album.coffee")
+
+			script(type="text/javascript")
+				var images = {{ sub_images.json}};
+				run_viewer(images);
+            	//draw_map(images);
+
+
+		#footer
+			.powered_by
+				a(target='_blank', href="http://www.farbox.com") Powered By FarBox.com
+				a(href="/admin") Admin
+				span ©2012-2015 Z.R.E.Y Inc.

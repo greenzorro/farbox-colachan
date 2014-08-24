@@ -1,0 +1,106 @@
+html
+	head
+		title FarBox Tempalte Engine
+		load('jquery')
+	body
+		style(type="text/css")
+			body {
+				font-size: 14px;
+				font-family: "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+				color: #555555;
+				width: 1000px;
+				margin: 0 auto;
+				-webkit-text-size-adjust:none;
+			}
+
+			a{
+				text-decoration: none;
+			}
+
+			#clone_template{
+				margin: 120px auto;
+				text-align: center;
+			}
+
+			#clone_template input{
+				height:35px;
+				width:250px;
+				margin-right: 30px;
+				font-size:18px;
+				color:#1c87ff;
+				padding: 2px 5px;
+			}
+
+			#clone_template .checkbox{
+				display: inline;
+				margin-top: -30px;
+				margin-left: -20px;
+			}
+
+			#clone_template .checkbox input{
+				width: 30px;
+				margin: 0;
+				height: 12px;
+				padding: 0;
+			}
+
+			#clone_template .checkbox label{
+				padding: 0;
+				margin-left: -13px;
+				font-size: 10px;
+				color: #888;
+			}
+
+			#clone_template a:hover {
+				background: #1c87ff;
+				color: #fff;
+				text-decoration: none;
+			}
+
+			#clone_template .button {
+				display: inline-block;
+				font-family: "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+				font-size: 1.5em;
+				letter-spacing: 1px;
+				padding: 5px 30px;
+				background:  #E60900;
+				color: #fff;
+				margin: 55px 0 0 45px;
+				border-radius: 5px;
+				border: 1px solid #e6e6e6;
+			}
+
+
+
+		#clone_template
+			label(for='site') Your Site Domain:
+			input#site(type="text")
+
+			.checkbox
+				input#auto_update(type="checkbox")
+				label Auto Update
+
+			a#redirect.button(href="#", onclick="clone_template();return false;") Clone Template
+
+		script(type="text/javascript")
+			$(document).ready(function(){
+				$('#auto_update').mousedown(function() {
+				if (!$(this).is(':checked')) {
+					this.checked = confirm("If you select `Auto Upgrade`, make sure you trust the owner of the template!");
+					$(this).trigger("change");
+					}
+				});
+				$('#site').focus();
+
+			});
+
+			function clone_template(){
+				var domain = $.trim($('#site').val()).toLowerCase();
+				if (domain.indexOf('http://')==-1){
+					domain = 'http://' + domain;
+				}
+				var url = domain.replace(/\/$/g, '') + '/?template_site_id={{ site._id }}';
+				url += '&auto_update='+ $('#auto_update').is(':checked');
+				window.location.href = url;
+			}
+

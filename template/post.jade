@@ -1,0 +1,11 @@
+extends base
+block title
+	title= post.title + " - " + site.title
+
+block header
+	include include/header
+block footer
+	include include/footer
+block content
+	include include/posts_detail
+	include include/comments

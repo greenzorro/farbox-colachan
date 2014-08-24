@@ -1,0 +1,8 @@
+extends base
+if request.path.startswith('/pages')
+	post = get_doc(path2+'.md') or get_doc(path2+'.txt') or get_doc(path2+'.mk') or get_doc(path2+'.markdown')
+block title
+	title= post.title
+block content
+	.post.markdown_container
+		.post_body.markdown_body= post.content

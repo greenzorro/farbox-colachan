@@ -1,0 +1,15 @@
+extends base
+block title
+	title= site.title
+
+block header
+	.index_header
+		include include/header
+block footer
+	include include/footer
+block content
+	if request.path.strip('/') == 'category'
+		+redirect('/categories')
+	else
+		include include/posts_list
+

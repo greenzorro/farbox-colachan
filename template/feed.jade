@@ -1,0 +1,19 @@
+doctype xml
++set_content_type('application/xml')
+feed(xmlns="http://www.w3.org/2005/Atom")
+	title= site.title
+	link(href="http://{{ request.host }}/")
+	link(ref="self", href="http://{{ request.host }}/feed")
+	id= site._id
+	if posts
+		updated= posts[0]['date'].strftime('%Y-%m-%dT%H:%M:%SZ')
+	for post in posts
+		entry
+			post_url = 'http://' + request.host + post.url.escaped
+			title= post.title.escaped
+			link(href=post_url, rel="alternate")
+			updated= post.date.strftime('%Y-%m-%dT%H:%M:%SZ')
+			id= post.url_path.escaped
+			author
+				name= site.configs.author or site.title
+			summary(type="html")= post.content.escaped

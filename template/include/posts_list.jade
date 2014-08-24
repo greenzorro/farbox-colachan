@@ -1,0 +1,22 @@
+.list.clearfix
+	for post in posts
+		.post
+			.content
+				h1.title
+					a(href=post.url, data-ajax="false")= post.title
+				.post_body= post.content.opening or post.content.limit(300)
+				.info.clearfix
+					.date
+						.icon-icon_clock
+						span
+							{{post.date.format('%Y-%m-%d')}}
+					.visitors
+						.icon-icon_book
+						span
+							{{ post.visits or 0 }}
+					if post.tags
+						.tags
+							for tag in post.tags
+								a(href="/tag/{{tag}}")= tag
+
+	include include/paginator

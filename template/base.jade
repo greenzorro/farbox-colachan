@@ -1,0 +1,20 @@
+html
+	head
+		meta(content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0", name="viewport")
+		meta(content="yes", name="apple-mobile-web-app-capable")
+		meta(content="black", name="apple-mobile-web-app-status-bar-style")
+		meta(content="telephone=no", name="format-detection")
+		meta(name="renderer", content="webkit")
+		meta(name="keywords", content=site.configs.keywords.escaped)
+		meta(name="description", content=site.raw_content.escaped)
+		link(rel="shortcut icon", href="/template/images/favicon.ico")
+		block title
+			title= request.args.s or post.title or tags.join('+') or category.title or site.title
+		load('fonts /template/css/reset.scss /template/css/fonts.css /template/frameworks/jqmobile/jquery.mobile-latest.css /template/css/style.scss /template/css/style_pc.css /template/js/jquery-latest.js /template/frameworks/jqmobile/jquery.mobile-latest.js /template/js/functions.js')
+
+	body
+		#body_wrapper
+			block header
+			#main
+				block content
+			block footer

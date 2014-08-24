@@ -1,0 +1,14 @@
+if paginator.has_pre or paginator.has_next
+	.clear
+	.pager.clearfix
+		if paginator.has_pre
+			a.paging.pre(href=paginator.pre_url)
+				.arrow.icon-arrow2_left
+				span
+					上一页
+		if paginator.has_next
+			a.paging.next(href=paginator.next_url)
+				.arrow.icon-arrow2_right
+				span
+					下一页
+		a.gotop.icon-arrow_up(href="#")
