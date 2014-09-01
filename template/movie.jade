@@ -1026,14 +1026,15 @@ block content
 						br
 						|电影每个镜头都有极强的表现力！
 
-		.ds-thread(data-thread-key="movie", data-title="电影收藏", data-url="http://colachan.com/movie")
-		script(type="text/javascript").
-			var duoshuoQuery = {short_name:"greenzorro"};
-			(function() {
-				var ds = document.createElement('script');
-				ds.type = 'text/javascript';ds.async = true;
-				ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-				ds.charset = 'UTF-8';
-				(document.getElementsByTagName('head')[0] 
-				 || document.getElementsByTagName('body')[0]).appendChild(ds);
-			})();
+		#fb_comments_container
+			.ds-thread(data-thread-key="movie", data-title="电影收藏", data-url="http://colachan.com/movie")
+			script(type="text/javascript").
+				var duoshuoQuery = {short_name:"greenzorro"};
+				(function() {
+					var ds = document.createElement('script');
+					ds.type = 'text/javascript';ds.async = true;
+					ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+					ds.charset = 'UTF-8';
+					(document.getElementsByTagName('head')[0] 
+					 || document.getElementsByTagName('body')[0]).appendChild(ds);
+				})();

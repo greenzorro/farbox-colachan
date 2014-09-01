@@ -15,7 +15,7 @@ $(document).on("pageinit",function (event) {
 	mainMenu();  //主菜单
 	searchForm();  //搜索框
 	qrCode();  //二维码
-	goTop();  //回顶部
+	scrollPosition();  //回顶部等页面滚动效果
 	listType();  //列表页文章类型判断，文字or图片
 	imgContain();  //详情页段落是否包含图片
 	movie();  //电影收藏
@@ -24,6 +24,7 @@ $(document).on("pageinit",function (event) {
 
 	// 插件效果
 	fancybox();  //fancybox弹窗相册
+	cnzz();  //cnzz统计代码
 
 })
 
@@ -125,11 +126,17 @@ function qrCode () {
 }
 
 
-// 回顶部
-function goTop () {
+// 回顶部等页面滚动效果
+function scrollPosition () {
 	$(".gotop").on("click", function () {
         $("html,body").animate({
             scrollTop: 0
+        },300);
+	})
+	$(".header .down .icon-arrow2_down").on("click", function () {
+		var winHeight = $(window).height();
+        $("html,body").animate({
+            scrollTop: winHeight
         },300);
 	})
 }
@@ -249,17 +256,19 @@ function explorerType (detailed) { //参数控制是否显示浏览器完整版�
     (s = ua.match(/version\/([\d.]+).*safari/)) ? Sys.safari = s[1] : 0;
     if (detailed) {
 		if (Sys.ie) return {"type":"ie","version":Sys.ie};
-		if (Sys.firefox) return {"type":"firefox","version":Sys.firefox};
-		if (Sys.chrome) return {"type":"chrome","version":Sys.chrome};
-		if (Sys.opera) return {"type":"opera","version":Sys.opera};
-		if (Sys.safari) return {"type":"safari","version":Sys.safari};
+		else if (Sys.firefox) return {"type":"firefox","version":Sys.firefox};
+		else if (Sys.chrome) return {"type":"chrome","version":Sys.chrome};
+		else if (Sys.opera) return {"type":"opera","version":Sys.opera};
+		else if (Sys.safari) return {"type":"safari","version":Sys.safari};
+		else return {"type":"null","version":"0"};
     }
     else {
 		if (Sys.ie) return {"type":"ie","version":parseInt(Sys.ie.split(".")[0])};
-		if (Sys.firefox) return {"type":"firefox","version":parseInt(Sys.firefox.split(".")[0])};
-		if (Sys.chrome) return {"type":"chrome","version":parseInt(Sys.chrome.split(".")[0])};
-		if (Sys.opera) return {"type":"opera","version":parseInt(Sys.opera.split(".")[0])};
-		if (Sys.safari) return {"type":"safari","version":parseInt(Sys.safari.split(".")[0])};
+		else if (Sys.firefox) return {"type":"firefox","version":parseInt(Sys.firefox.split(".")[0])};
+		else if (Sys.chrome) return {"type":"chrome","version":parseInt(Sys.chrome.split(".")[0])};
+		else if (Sys.opera) return {"type":"opera","version":parseInt(Sys.opera.split(".")[0])};
+		else if (Sys.safari) return {"type":"safari","version":parseInt(Sys.safari.split(".")[0])};
+		else return {"type":"null","version":"0"};
     }
 }
 
@@ -287,3 +296,8 @@ function fancybox () {
 }
 
 
+// cnzz统计代码
+function cnzz () {
+	var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+	$(".statistic").html(unescape("%3Cspan id='cnzz_stat_icon_2994887'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/stat.php%3Fid%3D2994887' type='text/javascript'%3E%3C/script%3E"));
+}

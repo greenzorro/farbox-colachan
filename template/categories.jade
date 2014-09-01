@@ -143,14 +143,15 @@ block content
 					br
 					|就这么突然冒出来的
 
-		.ds-thread(data-thread-key="categories", data-title="日志分类", data-url="http://colachan.com/categories")
-		script(type="text/javascript").
-			var duoshuoQuery = {short_name:"greenzorro"};
-			(function() {
-				var ds = document.createElement('script');
-				ds.type = 'text/javascript';ds.async = true;
-				ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-				ds.charset = 'UTF-8';
-				(document.getElementsByTagName('head')[0] 
-				 || document.getElementsByTagName('body')[0]).appendChild(ds);
-			})();
+		#fb_comments_container
+			.ds-thread(data-thread-key="categories", data-title="日志分类", data-url="http://colachan.com/categories")
+			script(type="text/javascript").
+				var duoshuoQuery = {short_name:"greenzorro"};
+				(function() {
+					var ds = document.createElement('script');
+					ds.type = 'text/javascript';ds.async = true;
+					ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+					ds.charset = 'UTF-8';
+					(document.getElementsByTagName('head')[0] 
+					 || document.getElementsByTagName('body')[0]).appendChild(ds);
+				})();

@@ -21,7 +21,7 @@ block content
 					.dot
 					.year 2006
 				.time3.item.clearfix
-					.event 从事视觉/UI
+					.event 从事UI/UX
 						i.angle
 					.dot
 					.year 2010
@@ -33,7 +33,7 @@ block content
 			.map
 			.skills
 				h2 技能栏
-				a(href="http://colachan.com/index.php/works") 看看作品？
+				a(href="http://colachan.com/works") 看看作品？
 				.skill_list.clearfix
 					.skill_ps Ps
 					.skill_ai Ai
@@ -107,14 +107,15 @@ block content
 						|认识橙也是偶然的机会，尽管不熟悉，每次聊都十分投机，酣畅淋漓的感觉，“喜欢龙猫的都是好人，有一颗善良的心”，好温暖的话啊，谈起设计和产品，聊起人生和理想，更是讲也讲不完，好朋友，值得讲心里话的人
 		a(name="comment")
 
-		.ds-thread(data-thread-key="about", data-title="关于可乐橙", data-url="http://colachan.com/about")
-		script(type="text/javascript").
-			var duoshuoQuery = {short_name:"greenzorro"};
-			(function() {
-				var ds = document.createElement('script');
-				ds.type = 'text/javascript';ds.async = true;
-				ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-				ds.charset = 'UTF-8';
-				(document.getElementsByTagName('head')[0] 
-				 || document.getElementsByTagName('body')[0]).appendChild(ds);
-			})();
+		#fb_comments_container
+			.ds-thread(data-thread-key="about", data-title="关于可乐橙", data-url="http://colachan.com/about")
+			script(type="text/javascript").
+				var duoshuoQuery = {short_name:"greenzorro"};
+				(function() {
+					var ds = document.createElement('script');
+					ds.type = 'text/javascript';ds.async = true;
+					ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+					ds.charset = 'UTF-8';
+					(document.getElementsByTagName('head')[0] 
+					 || document.getElementsByTagName('body')[0]).appendChild(ds);
+				})();

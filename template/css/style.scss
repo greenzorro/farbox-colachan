@@ -106,7 +106,7 @@ body {
 a {
 	@include aColor ($primary1);
 }
-input, textarea {
+input, textarea, button {
 	font-family: "Roboto", "stheiti", "microsoft yahei", sans-serif;
 }
 ::selection {
@@ -174,6 +174,20 @@ input, textarea {
 			font-family: "forte-mt", sans-serif;
 			font-size: 1.5em;
 			@include aColor ($light1);
+		}
+	}
+	.down {
+		.icon-arrow2_down {
+			display: inline-block;
+			width: 3.5em;
+			height: 3.5em;
+			line-height: 3.5em;
+			text-align: center;
+			color: $light1;
+			cursor: pointer;
+			&:before {
+				font-size: 3em;
+			}
 		}
 	}
 }
@@ -302,7 +316,7 @@ input, textarea {
 		.menu_wrapper_show {
 			@include transform (scale(1));
 		}
-		.intro, .follow {
+		.intro, .follow, .down {
 			display: none;
 		}
 	}
@@ -411,7 +425,7 @@ input, textarea {
 				}
 			}
 		}
-		.menu, .intro, .follow {
+		.menu, .intro, .follow, .down {
 			display: none;
 		}
 	}
@@ -511,11 +525,16 @@ input, textarea {
 		.intro {
 			clear: both;
 			display: none;
-			padding: 9em 0 0;
-			background: url(../images/slogen.png) no-repeat center 6em;
+			width: 100%;
+			padding: 3em 0 0;
+			background: url(../images/slogen.png) no-repeat center top;
 			background-size: 405px 53px;
 			text-align: center;
 			color: $light1;
+			position: absolute;
+			left: 0;
+			top: 35%;
+			z-index: 5;
 			.text {
 				display: none;
 			}
@@ -540,7 +559,7 @@ input, textarea {
 					width: 100%;
 					position: absolute;
 					left: 0;
-					top: 10.5em;
+					top: 0.8em;
 					@include transition-transform (0.3s,$easing1);
 					@include transform-origin (50% 40%);
 					@include transform (scale(0));
@@ -571,9 +590,12 @@ input, textarea {
 		}
 		.follow {
 			display: none;
-			padding: 5em 0 3.2em;
-			border-radius: 0.1em;
+			width: 100%;
 			text-align: center;
+			position: absolute;
+			left: 0;
+			top: 55%;
+			z-index: 4;
 			.social {
 				display: inline-block;
 				height: 1.5em;
@@ -606,14 +628,33 @@ input, textarea {
 				}
 			}
 		}
+		.down {
+			display: none;
+		}
 	}
 	.index_header .header {
+		height: 100vh;
 		background-image: $bg_img;
 		background-size: cover;
 		background-position: center center;
 		background-repeat: no-repeat;
-		.intro, .follow {
+		background-attachment: fixed;
+		position: relative;
+		.intro, .follow, .down {
 			display: block;
+		}
+		.down {
+			width: 100%;
+			text-align: center;
+			position: absolute;
+			left: 0;
+			bottom: 5%;
+			.icon-arrow2_down {
+				color: $light3;
+				&:hover {
+					color: $light2;
+				}
+			}
 		}
 	}
 }
@@ -704,7 +745,7 @@ input, textarea {
 	}
 	p {
 		line-height: 1.8;
-		margin: 0 0 1.2em;
+		margin: 0 0 1.5em;
 	}
 	h1, h2, h3, h4, h5, h6 {
 		font-weight: bold;
@@ -915,7 +956,7 @@ input, textarea {
 					@include aColor ($dark1);
 				}
 				.post_body {
-					height: 4.2em;
+					height: 4.3em;
 					overflow: hidden;
 					p {
 						line-height: 1.5;
@@ -983,7 +1024,6 @@ input, textarea {
 				font-size: 1.875em;
 			}
 			.post_body {
-				font-size: 0.875em;
 				img {
 					max-width: 20em;
 				}
@@ -1146,7 +1186,7 @@ input, textarea {
 			}
 		}
 		.pager {
-			background: none;
+			background: darken($bg1, 2.3%);
 			border-top: 1px solid $dark4;
 			box-shadow: none;
 		}
@@ -1269,8 +1309,63 @@ a {
 
 //****************************  duoshuo  ******************************//
 
-#ds-thread .ds-sync label {
-	display: none;
+#fb_comments_container {
+	#ds-thread #ds-reset {
+		.ds-sync label {
+			display: none;
+		}
+		.ds-textarea-wrapper {
+			background: $bg1;
+			border: 1px solid $dark4;
+			border-bottom: none;
+			border-radius: 0;
+		}
+		.ds-gradient-bg {
+			background: $bg1;
+		}
+		.ds-post-toolbar {
+			border-top: 1px solid lighten($dark4, 30%);
+			.ds-replybox {
+				padding: 0 0 0 5.4em;
+			}
+		}
+		.ds-post-options {
+			border: 1px solid $dark4;
+			border-top: 1px solid transparent;
+			border-radius: 0;
+		}
+		.ds-post-button {
+			background: $primary1;
+			border: 1px solid $dark4;
+			border-top: none;
+			border-left: none;
+			border-radius: 0;
+			box-shadow: none;
+			color: $light1;
+			text-shadow: none;
+			font-size: 1.2em;
+		}
+		li.ds-tab a.ds-current {
+			border: none;
+			background: none;
+		}
+		.ds-comments {
+			border-bottom: 1px solid lighten($dark4, 30%);
+			li.ds-post {
+				border-top: 1px solid lighten($dark4, 30%);
+				.ds-post-self {
+					padding: 1.5em 0;
+					border: none;
+					.ds-comment-body {
+						padding-left: 5em;
+						p {
+							line-height: 1.8;
+						}
+					}
+				}
+			}
+		}
+	}
 }
 // phone
 @media only screen and ($phone_landscape-max){
@@ -1289,6 +1384,13 @@ a {
 @media only screen and ($pc-min){
 	.ds-thread {
 		width: 68.75em;
-		margin: 2em auto;
+		margin: 3em auto;
 	}
+}
+
+
+//******************************  cnzz  *******************************//
+
+.statistic {
+	display: none;
 }
