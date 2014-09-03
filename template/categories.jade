@@ -7,142 +7,148 @@ block header
 block footer
 	include include/footer
 block content
-	#category.clearfix
-		.wrap
-			.typeintro
-				a.pic(href="/category/生活")
-					img(src="http://pic.yupoo.com/greenzorro/CALHpxBv/medish.jpg")
-				h2
-					a(href="/category/生活") 生活
-				p
-					|阿甘说，life is a box of chocolate
-					br
-					|我觉得，生活更像在玩pac-man
-					br
-					|转角是金豆还是妖怪，反正我看不到
-					br
-					|此处记载着我的生活轨迹
-					br
-					|有金豆，也有妖怪，但更多的只是普通的白豆
-			.typeintro
-				a.pic(href="/category/翻译")
-					img(src="http://pic.yupoo.com/greenzorro/D0PJKgNx/medish.jpg")
-				h2
-					a(href="/category/翻译") 翻译
-				p
-					|英语是项重要的技能，平时却少有机会用到
-					br
-					|为此必须做点什么
-					br
-					|坚持每周翻译一篇国外设计文章
-					br
-					|造福广大设计爱好者的同时
-					br
-					|顺便给自己点动力
-			.typeintro
-				a.pic(href="/category/极客")
-					img(src="http://pic.yupoo.com/greenzorro/CALHq1aB/medish.jpg")
-				h2
-					a(href="/category/极客") 极客
-				p
-					|作为一名业余geek
-					br
-					|捣鼓与尝鲜，是我的兴致所在
-					br
-					|然后便难以自持地想要对某事物评头论足一通
-					br
-					|所幸我还有一项固定爱好
-					br
-					|与功夫网斗智斗勇，其乐无穷！
-			.typeintro
-				a.pic(href="/category/幽默")
-					img(src="http://pic.yupoo.com/greenzorro/CALHq2F5/medish.jpg")
-				h2
-					a(href="/category/幽默") 幽默
-				p
-					|活着本身就是一场巨大的巧合
-					br
-					|地球到太阳的距离、地球自转公转周期、大气中氧气浓度、地表水所占比例、 微妙却平衡的生态圈……等等
-					br
-					|稍有差池，我们便不存在了，生活也不存在了
-					br
-					|所以，请笑一个
-			.typeintro
-				a.pic(href="/category/美食")
-					img(src="http://pic.yupoo.com/greenzorro/CPd6uUaT/medish.jpg")
-				h2
-					a(href="/category/美食") 美食
-				p
-					|美食，任何时候都值得期待
-					br
-					|作为一枚有DIY精神的吃货
-					br
-					|时常折腾各种原料排列组合
-					br
-					|立志奋发摆脱三脚猫的烹饪水品
-					br
-					|特设此栏目，自勉之~
-			.typeintro
-				a.pic(href="/category/照片")
-					img(src="http://pic.yupoo.com/greenzorro/CALHpZMY/medish.jpg")
-				h2
-					a(href="/category/照片") 照片
-				p
-					|我不是摄影师
-					br
-					|只是爱用照片讲故事
-					br
-					|从漫漫旅途，到阳台小憩
-					br
-					|很多时候
-					br
-					|千言万语远不如一声清脆快门
-			.typeintro
-				a.pic(href="/category/影音")
-					img(src="http://pic.yupoo.com/greenzorro/CALHqbVz/medish.jpg")
-				h2
-					a(href="/category/影音") 影音
-				p
-					|音乐与电影是最自由的存在
-					br
-					|听见的不是旋律，看见的也不是画面
-					br
-					|而是每颗心底属于自己的故事
-					br
-					|千变万化，却都美妙绝伦
-					br
-					|最纯粹的自由，人人都可拥有
-			.typeintro
-				a.pic(href="/category/写作")
-					img(src="http://pic.yupoo.com/greenzorro/CALHpNRY/medish.jpg")
-				h2
-					a(href="/category/写作") 写作
-				p
-					|阅读与写作总能让人身心愉悦，思维涌动
-					br
-					|我爱小说，或只是不带任何立场的纯粹的故事
-					br
-					|踏入时光河流，漫无目的地沉浮
-					br
-					|这里有我畅游书海的感悟
-					br
-					|和屈指可数几篇原创小说
-			.typeintro
-				a.pic(href="/category/梦境")
-					img(src="http://pic.yupoo.com/greenzorro/CALHpVfA/medish.jpg")
-				h2
-					a(href="/category/梦境") 梦境
-				p
-					|我需要专门为梦开设一个分类
-					br
-					|因为我做的梦不太寻常
-					br
-					|光怪陆离，难以捉摸
-					br
-					|这些梦境似乎并不来源于生活
-					br
-					|就这么突然冒出来的
+	#categories
+		.page_wrap
+			ul.cat_list.clearfix
+				li.life
+					a.pic(href="/category/生活")
+						span
+					h2
+						a(href="/category/生活") [ 生活 ]
+					p
+						|阿甘说，life is a box of chocolate
+						br
+						|我觉得，生活更像在玩pac-man
+						br
+						|转角是金豆还是妖怪，反正我看不到
+						br
+						|此处记载着我的生活轨迹
+						br
+						|有金豆，也有妖怪，但更多的只是普通的白豆
+				li.translate
+					a.pic(href="/category/翻译")
+						span
+					h2
+						a(href="/category/翻译") [ 翻译 ]
+					p
+						|英语是项重要的技能，平时却少有机会用到
+						br
+						|为此必须做点什么
+						br
+						|坚持每周翻译一篇国外设计文章
+						br
+						|造福广大设计爱好者的同时
+						br
+						|顺便给自己点动力
+				li.geek
+					a.pic(href="/category/极客")
+						span
+					h2
+						a(href="/category/极客") [ 极客 ]
+					p
+						|作为一名业余geek
+						br
+						|捣鼓与尝鲜，是我的兴致所在
+						br
+						|然后便难以自持地想要对某事物评头论足一通
+						br
+						|所幸我还有一项固定爱好
+						br
+						|与功夫网斗智斗勇，其乐无穷！
+				li.humor
+					a.pic(href="/category/幽默")
+						span
+					h2
+						a(href="/category/幽默") [ 幽默 ]
+					p
+						|活着本身就是一场巨大的巧合
+						br
+						|地球到太阳的距离、地球自转公转周期、大气中氧气浓度、地表水所占比例、 微妙却平衡的生态圈……等等
+						br
+						|稍有差池，我们便不存在了，生活也不存在了
+						br
+						|所以，请笑一个
+				li.food
+					a.pic(href="/category/美食")
+						span
+					h2
+						a(href="/category/美食") [ 美食 ]
+					p
+						|美食，任何时候都值得期待
+						br
+						|作为一枚有DIY精神的吃货
+						br
+						|时常折腾各种原料排列组合
+						br
+						|立志奋发摆脱三脚猫的烹饪水品
+						br
+						|特设此栏目，自勉之~
+				li.photo
+					a.pic(href="/category/照片")
+						span
+					h2
+						a(href="/category/照片") [ 照片 ]
+					p
+						|我不是摄影师
+						br
+						|只是爱用照片讲故事
+						br
+						|从漫漫旅途，到阳台小憩
+						br
+						|很多时候
+						br
+						|千言万语远不如一声清脆快门
+				li.media
+					a.pic(href="/category/影音")
+						span
+					h2
+						a(href="/category/影音") [ 影音 ]
+					p
+						|音乐与电影是最自由的存在
+						br
+						|听见的不是旋律，看见的也不是画面
+						br
+						|而是每颗心底属于自己的故事
+						br
+						|千变万化，却都美妙绝伦
+						br
+						|最纯粹的自由，人人都可拥有
+				li.book
+					a.pic(href="/category/写作")
+						span
+					h2
+						a(href="/category/写作") [ 写作 ]
+					p
+						|阅读与写作总能让人身心愉悦，思维涌动
+						br
+						|我爱小说，或只是不带任何立场的纯粹的故事
+						br
+						|踏入时光河流，漫无目的地沉浮
+						br
+						|这里有我畅游书海的感悟
+						br
+						|和屈指可数几篇原创小说
+				li.dream
+					a.pic(href="/category/梦境")
+						span
+					h2
+						a(href="/category/梦境") [ 梦境 ]
+					p
+						|我需要专门为梦开设一个分类
+						br
+						|因为我做的梦不太寻常
+						br
+						|光怪陆离，难以捉摸
+						br
+						|这些梦境似乎并不来源于生活
+						br
+						|就这么突然冒出来的
 
+			.clear
+			.pager.clearfix
+				a.gotop.icon-arrow_up(href="#")
+
+	.page_wrap
 		#fb_comments_container
 			.ds-thread(data-thread-key="categories", data-title="日志分类", data-url="http://colachan.com/categories")
 			script(type="text/javascript").

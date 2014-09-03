@@ -117,14 +117,23 @@ input, textarea, button {
 	background: $primary1;
 	color: $light1;
 }
-.main_wrap {
-	width: 68.75em;  //1100px
-	margin: auto;
-	position: relative;
-}
+// phone
 @media only screen and ($phone_landscape-max){
 	#main {
 		padding: 3.5em 0 0;
+	}
+}
+// pc
+@media only screen and ($pc-min){
+	.main_wrap {
+		width: 68.75em;  //1100px
+		margin: auto;
+		position: relative;
+	}
+	.page_wrap {
+		width: 75em;  //1200px
+		margin: auto;
+		position: relative;
 	}
 }
 
@@ -871,7 +880,6 @@ input, textarea, button {
 @media only screen and ($pad_portrait-min) and ($pad_landscape-max){
 	.pager {
 		background: $bg1;
-		box-shadow: 0 0.1em 0.35em $dark3;
 		.paging {
 			width: 33%;
 			.arrow {
@@ -887,7 +895,6 @@ input, textarea, button {
 @media only screen and ($pc-min){
 	.pager {
 		background: $bg1;
-		box-shadow: 0 0.1em 0.35em $dark3;
 		.paging {
 			&:hover {
 				color: $primary1;
@@ -910,7 +917,7 @@ input, textarea, button {
 
 
 //*********************************************************************//
-//                                pages                                //
+//                             basic pages                             //
 //*********************************************************************//
 
 
@@ -1067,19 +1074,15 @@ input, textarea, button {
 				}
 			}
 		}
+		.pager {
+			box-shadow: 0 0.1em 0.35em $dark3;
+		}
 	}
 }
 // pad
 @media only screen and ($pad_portrait-min) and ($pad_landscape-max){
 	.list {
 		margin: 0 1.875em;
-	}
-}
-// pc
-@media only screen and ($pc-min){
-	.list {
-		width: 68.75em;
-		margin: auto;
 	}
 }
 
@@ -1188,7 +1191,6 @@ input, textarea, button {
 		.pager {
 			background: darken($bg1, 2.3%);
 			border-top: 1px solid $dark4;
-			box-shadow: none;
 		}
 	}
 }
@@ -1201,22 +1203,200 @@ input, textarea, button {
 // pc
 @media only screen and ($pc-min){
 	.detail {
-		width: 68.75em;
 		margin: 1.875em auto;
 	}
 }
 
 
-//****************************  archive  ******************************//
-
-
 
 
 
 //*********************************************************************//
-//                            single page                              //
+//                            special page                             //
 //*********************************************************************//
 
+
+//***************************  categories  ****************************//
+
+#categories .cat_list {
+	li {
+		.pic {
+			display: block;
+			span {
+				display: block;
+				width: 100%;
+				height: 100%;
+				background-position: center center;
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+		}
+	}
+	.life a span {
+		background-image: url(http://pic.yupoo.com/greenzorro/E1Sp6lOT/eQ3ix.jpg);
+	}
+	.translate a span {
+		background-image: url(http://pic.yupoo.com/greenzorro/E1SppfG1/mNLPx.jpg);
+	}
+	.geek a span {
+		background-image: url(http://pic.yupoo.com/greenzorro/E1SpoZw5/EoRQ0.jpg);
+	}
+	.humor a span {
+		background-image: url(http://pic.yupoo.com/greenzorro/E1SpoMJK/uDF8I.jpg);
+	}
+	.food a span {
+		background-image: url(http://pic.yupoo.com/greenzorro/E1SpoWAp/XA6ru.jpg);
+	}
+	.photo a span {
+		background-image: url(http://pic.yupoo.com/greenzorro/E1SpoTKv/GJmg0.jpg);
+	}
+	.media a span {
+		background-image: url(http://pic.yupoo.com/greenzorro/E1SpoIYW/j7JR8.jpg);
+	}
+	.book a span {
+		background-image: url(http://pic.yupoo.com/greenzorro/E1Sposnm/GH8Jb.jpg);
+	}
+	.dream a span {
+		background-image: url(http://pic.yupoo.com/greenzorro/E1SpoSkg/5Ogfl.jpg);
+	}
+}
+// phone
+@media only screen and ($phone_landscape-max){
+	#categories .cat_list {
+		padding: 0 0 3em;
+		li {
+			padding: 3em 0 0;
+			text-align: center;
+			.pic {
+				display: inline-block;
+				width: 11.25em;
+				height: 11.25em;
+				overflow: hidden;
+				border-radius: 50%;
+			}
+			h2 {
+				margin: 0.8em 0;
+				a {
+					font-size: 1.2em;
+				}
+			}
+			p {
+				padding: 0 3em;
+				font-size: 0.85em;
+			}
+		}
+	}
+}
+// pad
+@media only screen and ($pad_portrait-min) and ($pad_landscape-max){
+	#categories
+	{
+		background: $bg1;
+		.cat_list {
+			padding: 0 3em 3.75em;
+			li {
+				float: left;
+				width: 50%;
+				padding: 3.75em 0 0;
+				.pic {
+					display: block;
+					height: 10em;
+					margin: 0 1em;
+				}
+				h2 {
+					margin: 1em 1em 0.5em;
+					a {
+						font-size: 1.2em;
+					}
+				}
+				p {
+					margin: 0 1.1em;
+					font-size: 0.85em;
+				}
+			}
+		}
+		.pager {
+			border-top: 1px solid $dark4;
+		}
+	}
+}
+// pc
+@media only screen and ($pc-min){
+	#categories
+	{
+		background: $bg1;
+		.cat_list {
+			padding: 0 0 2.8em;
+			li {
+				float: left;
+				width: 33.33%;
+				padding: 2.8em 0 0;
+				.pic {
+					display: block;
+					height: 10em;
+					overflow: hidden;
+					margin: 0 0.9em;
+					span {
+						@include transition-transform (1s, $easing1);
+						@include transform-origin (50% 50%);
+						@include transform (scale(1));
+						&:hover {
+							@include transform (scale(1.05));
+						}
+					}
+				}
+				h2 {
+					margin: 1.5em 0.9em 0.5em;
+					a {
+						font-size: 1.2em;
+					}
+				}
+				p {
+					margin: 0 1.1em;
+					font-size: 0.85em;
+				}
+			}
+		}
+		.pager {
+			display: none;
+		}
+	}
+}
+
+
+//*****************************  movies  ******************************//
+
+// phone_portrait
+@media only screen and ($phone_portrait-max){
+}
+// phone_landscape
+@media only screen and ($phone_landscape-min) and ($phone_landscape-max){
+}
+// pad
+@media only screen and ($pad_portrait-min) and ($pad_landscape-max){
+}
+// pc
+@media only screen and ($pc-min){
+}
+
+
+//*****************************  works  *******************************//
+
+// phone_portrait
+@media only screen and ($phone_portrait-max){
+}
+// phone_landscape
+@media only screen and ($phone_landscape-min) and ($phone_landscape-max){
+}
+// pad
+@media only screen and ($pad_portrait-min) and ($pad_landscape-max){
+}
+// pc
+@media only screen and ($pc-min){
+}
+
+
+//*****************************  about  *******************************//
 
 // phone_portrait
 @media only screen and ($phone_portrait-max){
@@ -1357,7 +1537,6 @@ a {
 					padding: 1.5em 0;
 					border: none;
 					.ds-comment-body {
-						padding-left: 5em;
 						p {
 							line-height: 1.8;
 						}
@@ -1377,13 +1556,12 @@ a {
 // pad
 @media only screen and ($pad_portrait-min) and ($pad_landscape-max){
 	.ds-thread {
-		margin: 0 1.875em;
+		margin: 3em 1.875em;
 	}
 }
 // pc
 @media only screen and ($pc-min){
 	.ds-thread {
-		width: 68.75em;
 		margin: 3em auto;
 	}
 }
