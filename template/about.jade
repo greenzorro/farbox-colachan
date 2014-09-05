@@ -8,7 +8,7 @@ block footer
 	include include/footer
 block content
 	#about.clearfix
-		.wrap
+		.page_wrap
 			.timeline
 				.time1.item.clearfix
 					.event 出生
@@ -105,8 +105,13 @@ block content
 					.comment_item
 						h4 蜕.锐.悦的评价：
 						|认识橙也是偶然的机会，尽管不熟悉，每次聊都十分投机，酣畅淋漓的感觉，“喜欢龙猫的都是好人，有一颗善良的心”，好温暖的话啊，谈起设计和产品，聊起人生和理想，更是讲也讲不完，好朋友，值得讲心里话的人
-		a(name="comment")
+			a(name="comment")
 
+			.clear
+			.pager.clearfix
+				a.gotop.icon-arrow_up(href="#")
+
+	.page_wrap
 		#fb_comments_container
 			.ds-thread(data-thread-key="about", data-title="关于可乐橙", data-url="http://colachan.com/about")
 			script(type="text/javascript").
