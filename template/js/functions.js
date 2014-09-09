@@ -62,8 +62,9 @@ function mainMenu () {
 function searchForm () {
 	var searchForm = $(".header .search input");
 	$(".header .search .icon-icon_search").on("click", function () {  //PC端点击搜索按钮
+		thisInput = $(this).parent().find("input");
 		if (getWinSize() > 4 && searchForm.val() != "") {
-			searchKeyword(searchForm.val());  //搜索跳转
+			searchKeyword(thisInput.val(), thisInput);  //搜索跳转
 		};
 	})
 	searchForm.focus(function () {  //输入框获得焦点
@@ -71,7 +72,7 @@ function searchForm () {
 		$(this).val($(this).val());  //光标移到末尾
 		this.onkeyup = function () {
 			if (event.keyCode == 13) {  //按下回车键
-				searchKeyword($(this).val());  //搜索跳转
+				searchKeyword($(this).val(), $(this));  //搜索跳转
 			}
 		}
 	}).blur(function () {  //搜索框失去焦点
@@ -102,8 +103,8 @@ function searchForm () {
 		$(".header .title").removeClass("title_hide");  //显示标题
     }
     // 搜索跳转
-	function searchKeyword (keyword) {
-		if (searchForm.val().length > 0) {  //输入框不为空
+	function searchKeyword (keyword, obj) {
+		if (obj.val().length > 0) {  //输入框不为空
 			window.location = "http://" + window.location.host + "/?s=" + keyword;
 		};
 	}
@@ -191,7 +192,7 @@ function imgContain () {
 function movie () {
 	if($("#movie").length > 0)
 	{
-		var groupSize = 11;  //列数
+		var groupSize = 12;  //列数
 		$("#movie .item").each(function(i){
 			if(i % groupSize > groupSize-5)
 			{

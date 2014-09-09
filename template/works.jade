@@ -9,7 +9,7 @@ block footer
 block content
 	load('/template/frameworks/fancybox/jquery.fancybox.js /template/frameworks/fancybox/jquery.fancybox.css /template/frameworks/fancybox/jquery.mousewheel-3.0.6.pack.js')
 	#works.clearfix
-		.wrap
+		.page_wrap
 			.content
 				a.play.fancybox(href="http://pic.yupoo.com/greenzorro/DzP8uOLz/Uy4mQ.jpg", rel="works") 播放
 				p.slogen I design.
@@ -98,15 +98,20 @@ block content
 					a.fancybox(href="http://pic.yupoo.com/greenzorro/D0LBcXwH/j9mz.jpg", title="南宋御街宣传册", rel="works")
 					a.fancybox(href="http://pic.yupoo.com/greenzorro/D0LBf90A/121pzN.jpg", title="南宋御街宣传册", rel="works")
 
-			#fb_comments_container
-				.ds-thread(data-thread-key="works", data-title="设计作品", data-url="http://colachan.com/works")
-				script(type="text/javascript").
-					var duoshuoQuery = {short_name:"greenzorro"};
-					(function() {
-						var ds = document.createElement('script');
-						ds.type = 'text/javascript';ds.async = true;
-						ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-						ds.charset = 'UTF-8';
-						(document.getElementsByTagName('head')[0] 
-						 || document.getElementsByTagName('body')[0]).appendChild(ds);
-					})();
+			.clear
+			.pager.clearfix
+				a.gotop.icon-arrow_up(href="#")
+
+	.page_wrap
+		#fb_comments_container
+			.ds-thread(data-thread-key="works", data-title="设计作品", data-url="http://colachan.com/works")
+			script(type="text/javascript").
+				var duoshuoQuery = {short_name:"greenzorro"};
+				(function() {
+					var ds = document.createElement('script');
+					ds.type = 'text/javascript';ds.async = true;
+					ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+					ds.charset = 'UTF-8';
+					(document.getElementsByTagName('head')[0] 
+					 || document.getElementsByTagName('body')[0]).appendChild(ds);
+				})();

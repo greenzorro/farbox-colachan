@@ -3,7 +3,10 @@ block title
 	title= site.title
 
 block header
-	.index_header
+	if request.url_without_host == "/"
+		.index_header
+			include include/header
+	else
 		include include/header
 block footer
 	include include/footer
