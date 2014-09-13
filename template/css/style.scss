@@ -130,6 +130,11 @@ input, textarea, button {
 		margin: auto;
 		position: relative;
 	}
+	.post_wrap {
+		width: 46.875em;  //750px
+		margin: auto;
+		position: relative;
+	}
 	.page_wrap {
 		width: 75em;  //1200px
 		margin: auto;
@@ -749,6 +754,7 @@ input, textarea, button {
 //*************************  content format  **************************//
 
 .post_body {
+	font-size: 1.2em;
 	img {
 		max-width: 100%;
 	}
@@ -903,6 +909,9 @@ input, textarea, button {
 				width: 1.8em;
 			}
 			span {
+				max-width: 18em;
+				height: 100%;
+				overflow: hidden;
 				font-size: 0.5em;
 			}
 		}
