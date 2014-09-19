@@ -16,6 +16,19 @@
 					.tags
 						for tag in post.tags
 							a(href="/tag/{{tag}}")= tag
+			#baidu_share
+				p
+					|分享本文：
+				.bdsharebuttonbox
+					a.bds_tsina(data-cmd="tsina", title="分享到新浪微博")
+					a.bds_weixin(data-cmd="weixin", title="分享到微信")
+					a.bds_sqq(data-cmd="sqq", title="分享到QQ好友")
+					a.bds_qzone(data-cmd="qzone", title="分享到QQ空间")
+					a.bds_douban(data-cmd="douban", title="分享到豆瓣网")
+					a.bds_twi(data-cmd="twi", title="分享到Twitter")
+					a.bds_fbook(data-cmd="fbook", title="分享到Facebook")
+				script.
+					window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"32"},"share":{},"image":{"viewList":["tsina","weixin","sqq","qzone","douban","twi","fbook"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["tsina","weixin","sqq","qzone","douban","twi","fbook"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
 
 		.pager.clearfix
 			if pre_one

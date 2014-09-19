@@ -4,14 +4,14 @@
 
 
 // value settings
-$dark1: rgba(0,0,0,87%);
-$dark2: rgba(0,0,0,54%);
-$dark3: rgba(0,0,0,26%);
-$dark4: rgba(0,0,0,12%);
-$light1: rgba(255,255,255,87%);
-$light2: rgba(255,255,255,54%);
-$light3: rgba(255,255,255,26%);
-$light4: rgba(255,255,255,12%);
+$dark1: rgba(0,0,0,0.87);
+$dark2: rgba(0,0,0,0.54);
+$dark3: rgba(0,0,0,0.26);
+$dark4: rgba(0,0,0,0.12);
+$light1: rgba(255,255,255,0.87);
+$light2: rgba(255,255,255,0.54);
+$light3: rgba(255,255,255,0.26);
+$light4: rgba(255,255,255,0.12);
 $bg1: #fff;
 $bg2: #f5f5f5;
 $bg3: #eee;
@@ -29,14 +29,14 @@ $easing1: cubic-bezier(0.15, 0.95, 0.41, 0.95);
 
 
 // responsive break points
-$phone_portrait-max: max-width:33.36em;  //less than 533px, phone_portrait
-$phone_landscape-min: min-width:33.37em;  //above 534px, phone_landscape
-$phone_landscape-max: max-width:47.99em;  //less than 767px, phone_landscape
-$pad_portrait-min: min-width:48em;  //above 768px, pad_portrait
-$pad_portrait-max: max-width:63.99em;  //less than 1023px, pad_portrait
-$pad_landscape-min: min-width:64em;  //above 1024px, pad_landscape
-$pad_landscape-max: max-width:74.99em;  //less than 1199px, pad_landscape
-$pc-min: min-width:75em;  //above 1200px, pc
+$phone_portrait-max: 33.36em;  //533px
+$phone_landscape-min: 33.37em;  //534px
+$phone_landscape-max: 47.99em;  //767px
+$pad_portrait-min: 48em;  //768px
+$pad_portrait-max: 63.99em;  //1023px
+$pad_landscape-min: 64em;  //1024px
+$pad_landscape-max: 74.99em;  //1199px
+$pc-min: 75em;  //1200px
 
 
 // functions
@@ -98,7 +98,7 @@ html, body{
 }
 body {
 	line-height: 1.6;
-	font-family: "Roboto", "stheiti", "microsoft yahei", sans-serif;
+	font-family: "droid-sans", "stheiti", "microsoft yahei", sans-serif;
 	font-size: 1em;
 	color: $dark1;
 	background: $bg2;
@@ -107,7 +107,7 @@ a {
 	@include aColor ($primary1);
 }
 input, textarea, button {
-	font-family: "Roboto", "stheiti", "microsoft yahei", sans-serif;
+	font-family: "droid-sans", "stheiti", "microsoft yahei", sans-serif;
 }
 ::selection {
 	background: $primary1;
@@ -118,13 +118,13 @@ input, textarea, button {
 	color: $light1;
 }
 // phone
-@media only screen and ($phone_landscape-max){
+@media only screen and (max-width: $phone_landscape-max){
 	#main {
 		padding: 3.5em 0 0;
 	}
 }
 // pc
-@media only screen and ($pc-min){
+@media only screen and (min-width: $pc-min){
 	.main_wrap {
 		width: 68.75em;  //1100px
 		margin: auto;
@@ -206,7 +206,7 @@ input, textarea, button {
 	}
 }
 // phone
-@media only screen and ($phone_landscape-max){
+@media only screen and (max-width: $phone_landscape-max){
 	.header {
 		width: 100%;
 		height: 3.5em;
@@ -336,7 +336,7 @@ input, textarea, button {
 	}
 }
 // phone_portrait
-@media only screen and ($phone_portrait-max){
+@media only screen and (max-width: $phone_portrait-max){
 	.header .menu_wrapper .categories li {
 		width: 33.33%;
 	}
@@ -350,7 +350,7 @@ input, textarea, button {
 	}
 }
 // phone_landscape
-@media only screen and ($phone_landscape-min) and ($phone_landscape-max){
+@media only screen and (min-width: $phone_landscape-min) and (max-width: $phone_landscape-max){
 	.header .menu_wrapper .categories li {
 		width: 20%;
 	}
@@ -365,7 +365,7 @@ input, textarea, button {
 	}
 }
 // pad
-@media only screen and ($pad_portrait-min) and ($pad_landscape-max){
+@media only screen and (min-width: $pad_portrait-min) and (max-width: $pad_landscape-max){
 	.header {
 		background-image: $bg_img;
 		background-size: cover;
@@ -445,7 +445,7 @@ input, textarea, button {
 	}
 }
 // pc
-@media only screen and ($pc-min){
+@media only screen and (min-width: $pc-min){
 	.header {
 		background: $bg4;
 		.menu {
@@ -676,12 +676,12 @@ input, textarea, button {
 
 //*****************************  footer  ******************************//
 
-@media only screen and ($pad_landscape-max){
+@media only screen and (max-width: $pad_landscape-max){
 	.footer {
 		display: none;
 	}
 }
-@media only screen and ($pc-min){
+@media only screen and (min-width: $pc-min){
 	.footer {
 		padding: 2em 0;
 		.logo {
@@ -754,7 +754,6 @@ input, textarea, button {
 //*************************  content format  **************************//
 
 .post_body {
-	font-size: 1.2em;
 	img {
 		max-width: 100%;
 	}
@@ -871,7 +870,7 @@ input, textarea, button {
 	}
 }
 // phone
-@media only screen and ($phone_landscape-max){
+@media only screen and (max-width: $phone_landscape-max){
 	.pager {
 		border-top: 1px solid $dark4;
 		.paging {
@@ -883,7 +882,7 @@ input, textarea, button {
 	}
 }
 // pad
-@media only screen and ($pad_portrait-min) and ($pad_landscape-max){
+@media only screen and (min-width: $pad_portrait-min) and (max-width: $pad_landscape-max){
 	.pager {
 		background: $bg1;
 		.paging {
@@ -898,7 +897,7 @@ input, textarea, button {
 	}
 }
 // pc
-@media only screen and ($pc-min){
+@media only screen and (min-width: $pc-min){
 	.pager {
 		background: $bg1;
 		.paging {
@@ -933,7 +932,7 @@ input, textarea, button {
 //******************************  list  *******************************//
 
 // phone
-@media only screen and ($phone_landscape-max){
+@media only screen and (max-width: $phone_landscape-max){
 	.list {
 		.post {
 			position: relative;
@@ -1016,7 +1015,7 @@ input, textarea, button {
 	}
 }
 // phone_landscape
-@media only screen and ($phone_landscape-min) and ($phone_landscape-max){
+@media only screen and (min-width: $phone_landscape-min) and (max-width: $phone_landscape-max){
 	.list {
 		.post {
 			float: left;
@@ -1025,7 +1024,7 @@ input, textarea, button {
 	}
 }
 // pad and pc
-@media only screen and ($pad_portrait-min){
+@media only screen and (min-width: $pad_portrait-min){
 	.list {
 		padding: 1.875em 0;
 		.post {
@@ -1089,7 +1088,7 @@ input, textarea, button {
 	}
 }
 // pad
-@media only screen and ($pad_portrait-min) and ($pad_landscape-max){
+@media only screen and (min-width: $pad_portrait-min) and (max-width: $pad_landscape-max){
 	.list {
 		margin: 0 1.875em;
 	}
@@ -1099,7 +1098,7 @@ input, textarea, button {
 //******************************  post  *******************************//
 
 // phone
-@media only screen and ($phone_landscape-max){
+@media only screen and (max-width: $phone_landscape-max){
 	.detail {
 		border-top: 9.375em solid $bg4;
 		.title {
@@ -1146,7 +1145,7 @@ input, textarea, button {
 	}
 }
 // pad and pc
-@media only screen and ($pad_portrait-min){
+@media only screen and (min-width: $pad_portrait-min){
 	.detail {
 		background: $bg1;
 		box-shadow: 0 0.1em 0.35em $dark3;
@@ -1204,13 +1203,13 @@ input, textarea, button {
 	}
 }
 // pad
-@media only screen and ($pad_portrait-min) and ($pad_landscape-max){
+@media only screen and (min-width: $pad_portrait-min) and (max-width: $pad_landscape-max){
 	.detail {
 		margin: 1.875em;
 	}
 }
 // pc
-@media only screen and ($pc-min){
+@media only screen and (min-width: $pc-min){
 	.detail {
 		margin: 1.875em auto;
 	}
@@ -1270,7 +1269,7 @@ input, textarea, button {
 	}
 }
 // phone
-@media only screen and ($phone_landscape-max){
+@media only screen and (max-width: $phone_landscape-max){
 	#categories .cat_list {
 		padding: 0 0 3em;
 		li {
@@ -1297,7 +1296,7 @@ input, textarea, button {
 	}
 }
 // pad
-@media only screen and ($pad_portrait-min) and ($pad_landscape-max){
+@media only screen and (min-width: $pad_portrait-min) and (max-width: $pad_landscape-max){
 	#categories
 	{
 		background: $bg1;
@@ -1330,7 +1329,7 @@ input, textarea, button {
 	}
 }
 // pc
-@media only screen and ($pc-min){
+@media only screen and (min-width: $pc-min){
 	#categories
 	{
 		background: $bg1;
@@ -1376,48 +1375,48 @@ input, textarea, button {
 //*****************************  movies  ******************************//
 
 // phone_portrait
-@media only screen and ($phone_portrait-max){
+@media only screen and (max-width: $phone_portrait-max){
 }
 // phone_landscape
-@media only screen and ($phone_landscape-min) and ($phone_landscape-max){
+@media only screen and (min-width: $phone_landscape-min) and (max-width: $phone_landscape-max){
 }
 // pad
-@media only screen and ($pad_portrait-min) and ($pad_landscape-max){
+@media only screen and (min-width: $pad_portrait-min) and (max-width: $pad_landscape-max){
 }
 // pc
-@media only screen and ($pc-min){
+@media only screen and (min-width: $pc-min){
 }
 
 
 //*****************************  works  *******************************//
 
 // phone_portrait
-@media only screen and ($phone_portrait-max){
+@media only screen and (max-width: $phone_portrait-max){
 }
 // phone_landscape
-@media only screen and ($phone_landscape-min) and ($phone_landscape-max){
+@media only screen and (min-width: $phone_landscape-min) and (max-width: $phone_landscape-max){
 }
 // pad
-@media only screen and ($pad_portrait-min) and ($pad_landscape-max){
+@media only screen and (min-width: $pad_portrait-min) and (max-width: $pad_landscape-max){
 }
 // pc
-@media only screen and ($pc-min){
+@media only screen and (min-width: $pc-min){
 }
 
 
 //*****************************  about  *******************************//
 
 // phone_portrait
-@media only screen and ($phone_portrait-max){
+@media only screen and (max-width: $phone_portrait-max){
 }
 // phone_landscape
-@media only screen and ($phone_landscape-min) and ($phone_landscape-max){
+@media only screen and (min-width: $phone_landscape-min) and (max-width: $phone_landscape-max){
 }
 // pad
-@media only screen and ($pad_portrait-min) and ($pad_landscape-max){
+@media only screen and (min-width: $pad_portrait-min) and (max-width: $pad_landscape-max){
 }
 // pc
-@media only screen and ($pc-min){
+@media only screen and (min-width: $pc-min){
 }
 
 
@@ -1496,6 +1495,46 @@ a {
 //*********************************************************************//
 
 
+//**************************  baidu share  ****************************//
+
+#baidu_share {
+	padding: 2em 0 0;
+	.bdsharebuttonbox {
+		a {
+			background: url(../images/icon_share.png) no-repeat;
+			background-size: 160px 64px;
+		}
+		.bds_tsina {
+			background-position: -0px -0px;
+		}
+		.bds_weixin {
+			background-position: -32px -0px;
+		}
+		.bds_sqq {
+			background-position: -64px -0px;
+		}
+		.bds_qzone {
+			background-position: -96px -0px;
+		}
+		.bds_douban {
+			background-position: -128px -0px;
+		}
+		.bds_twi {
+			background-position: -0px -32px;
+		}
+		.bds_fbook {
+			background-position: -32px -32px;
+		}
+	}
+}
+// phone
+@media only screen and (max-width: $phone_landscape-max){
+	#baidu_share {
+		padding: 0 15px 2em;
+	}
+}
+
+
 //****************************  duoshuo  ******************************//
 
 #fb_comments_container {
@@ -1556,20 +1595,20 @@ a {
 	}
 }
 // phone
-@media only screen and ($phone_landscape-max){
+@media only screen and (max-width: $phone_landscape-max){
 	.ds-thread {
 		padding: 1em 15px 0;
 		border-top: 1px solid $dark4;
 	}
 }
 // pad
-@media only screen and ($pad_portrait-min) and ($pad_landscape-max){
+@media only screen and (min-width: $pad_portrait-min) and (max-width: $pad_landscape-max){
 	.ds-thread {
 		margin: 3em 1.875em;
 	}
 }
 // pc
-@media only screen and ($pc-min){
+@media only screen and (min-width: $pc-min){
 	.ds-thread {
 		margin: 3em auto;
 	}
