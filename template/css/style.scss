@@ -1499,31 +1499,78 @@ a {
 
 #baidu_share {
 	padding: 2em 0 0;
-	.bdsharebuttonbox {
-		a {
-			background: url(../images/icon_share.png) no-repeat;
-			background-size: 160px 64px;
+}
+body {
+	#baidu_share, .bdselect_share_content, .sr-bdimgshare {
+		.bdshare-button-style1-32, .bdshare-button-style0-16 {
+			a {
+				background: url(../images/icon_share.png) no-repeat;
+			}
+			.bds_more {
+				display: none;
+			}
 		}
-		.bds_tsina {
-			background-position: -0px -0px;
+		.bdshare-button-style1-32 {
+			a {
+				background: url(../images/icon_share.png) no-repeat;
+				background-size: 160px 64px;
+			}
+			.bds_tsina {
+				background-position: -0px -0px;
+			}
+			.bds_weixin {
+				background-position: -32px -0px;
+			}
+			.bds_sqq {
+				background-position: -64px -0px;
+			}
+			.bds_qzone {
+				background-position: -96px -0px;
+			}
+			.bds_douban {
+				background-position: -128px -0px;
+			}
+			.bds_twi {
+				background-position: -0px -32px;
+			}
+			.bds_fbook {
+				background-position: -32px -32px;
+			}
 		}
-		.bds_weixin {
-			background-position: -32px -0px;
+		.bdshare-button-style0-16 {
+			a {
+				padding-left: 16px;
+				background: url(../images/icon_share.png) no-repeat;
+				background-size: 80px 32px;
+			}
+			.bds_tsina {
+				background-position: -0px -0px;
+			}
+			.bds_weixin {
+				background-position: -16px -0px;
+			}
+			.bds_sqq {
+				background-position: -32px -0px;
+			}
+			.bds_qzone {
+				background-position: -48px -0px;
+			}
+			.bds_douban {
+				background-position: -64px -0px;
+			}
+			.bds_twi {
+				background-position: -0px -16px;
+			}
+			.bds_fbook {
+				background-position: -16px -16px;
+			}
+			.bdimgshare-lbl {
+				color: $dark1;
+			}
 		}
-		.bds_sqq {
-			background-position: -64px -0px;
-		}
-		.bds_qzone {
-			background-position: -96px -0px;
-		}
-		.bds_douban {
-			background-position: -128px -0px;
-		}
-		.bds_twi {
-			background-position: -0px -32px;
-		}
-		.bds_fbook {
-			background-position: -32px -32px;
+		.bdimgshare-bg {
+			background: $bg1;
+			opacity: 0.95;
 		}
 	}
 }
