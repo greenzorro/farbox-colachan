@@ -18,7 +18,6 @@ $(document).on("pageinit",function (event) {
 	scrollPosition();  //回顶部等页面滚动效果
 	listType();  //列表页文章类型判断，文字or图片
 	imgContain();  //详情页段落是否包含图片
-	movie();  //电影收藏
 
 	// 基础功能
 
@@ -185,32 +184,6 @@ function imgContain () {
 			};
 		})
 	};
-}
-
-
-// 电影收藏
-function movie () {
-	if($("#movie").length > 0)
-	{
-		var groupSize = 12;  //列数
-		$("#movie .item").each(function(i){
-			if(i % groupSize > groupSize-5)
-			{
-				$(this).find("p").addClass("to_left");
-			}
-			else {
-				$(this).find("p").addClass("to_right");
-			}
-		});
-		$("#movie h3").hover(
-			function(){
-				$(this).next("p").fadeIn(300);
-			},
-			function(){
-				$("#movie .item p").hide();
-			}
-		)
-	}
 }
 
 

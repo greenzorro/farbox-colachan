@@ -24,7 +24,7 @@ $accent2: #e8e4d9;
 $accent3: #75484e;
 $shadow1: 0 1px 4px rgba(0,0,0,0.35);
 $shadow2: 0 4px 4px rgba(0,0,0,0.35);
-$bg_img: url(../images/bg.jpg);
+$bg_img: url(http://greenzorro.github.io/colacdn/blog_img_assets/bg.jpg);
 $easing1: cubic-bezier(0.15, 0.95, 0.41, 0.95);
 
 
@@ -126,17 +126,17 @@ input, textarea, button {
 // pc
 @media only screen and (min-width: $pc-min){
 	.main_wrap {
-		width: 68.75em;  //1100px
+		max-width: 68.75em;  //1100px
 		margin: auto;
 		position: relative;
 	}
 	.post_wrap {
-		width: 46.875em;  //750px
+		max-width: 46.875em;  //750px
 		margin: auto;
 		position: relative;
 	}
 	.page_wrap {
-		width: 75em;  //1200px
+		max-width: 75em;  //1200px
 		margin: auto;
 		position: relative;
 	}
@@ -541,7 +541,7 @@ input, textarea, button {
 			display: none;
 			width: 100%;
 			padding: 3em 0 0;
-			background: url(../images/slogen.png) no-repeat center top;
+			background: url(http://greenzorro.github.io/colacdn/blog_img_assets/slogen.png) no-repeat center top;
 			background-size: 405px 53px;
 			text-align: center;
 			color: $light1;
@@ -586,7 +586,7 @@ input, textarea, button {
 						.img {
 							width: 9.375em;
 							height: 9.375em;
-							background: url(../images/qrcode.jpg) no-repeat center center;
+							background: url(http://greenzorro.github.io/colacdn/blog_img_assets/qrcode.jpg) no-repeat center center;
 							background-size: 150px 150px;
 						}
 						p {
@@ -617,7 +617,7 @@ input, textarea, button {
 				border: 1px solid $light3;
 				a {
 					display: inline-block;
-					background: url(../images/social.png) no-repeat;
+					background: url(http://greenzorro.github.io/colacdn/blog_img_assets/social.png) no-repeat;
 					background-size: 72px 24px;
 					width: 1.5em;
 					height: 1.5em;
@@ -688,7 +688,7 @@ input, textarea, button {
 			width: 40px;
 			height: 46px;
 			margin: 0 auto 1em;
-			background: url(../images/logo.png) no-repeat center center;
+			background: url(http://greenzorro.github.io/colacdn/blog_img_assets/logo.png) no-repeat center center;
 			background-size: 40px 46px;
 		}
 		p {
@@ -872,7 +872,6 @@ input, textarea, button {
 // phone
 @media only screen and (max-width: $phone_landscape-max){
 	.pager {
-		border-top: 1px solid $dark4;
 		.paging {
 			width: 33%;
 			span {
@@ -880,11 +879,21 @@ input, textarea, button {
 			}
 		}
 	}
+	.list .pager {
+		border-top: 1px solid $dark4;
+	}
+	.detail .pager {
+		border-top: 1px solid $dark4;
+		border-bottom: 1px solid $dark4;
+	}
+	.single .pager {
+		border-top: 1px solid $dark4;
+		border-bottom: 1px solid $dark4;
+	}
 }
 // pad
 @media only screen and (min-width: $pad_portrait-min) and (max-width: $pad_landscape-max){
 	.pager {
-		background: $bg1;
 		.paging {
 			width: 33%;
 			.arrow {
@@ -895,11 +904,22 @@ input, textarea, button {
 			}
 		}
 	}
+	.list .pager {
+		background: $bg1;
+		box-shadow: 0 0.1em 0.35em $dark3;
+	}
+	.detail .pager {
+		background: darken($bg1, 2.3%);
+		border-top: 1px solid $dark4;
+	}
+	.single .pager {
+		border-top: 1px solid $dark4;
+		border-bottom: 1px solid $dark4;
+	}
 }
 // pc
 @media only screen and (min-width: $pc-min){
 	.pager {
-		background: $bg1;
 		.paging {
 			&:hover {
 				color: $primary1;
@@ -917,6 +937,17 @@ input, textarea, button {
 		.gotop {
 			display: none;
 		}
+	}
+	.list .pager {
+		background: $bg1;
+		box-shadow: 0 0.1em 0.35em $dark3;
+	}
+	.detail .pager {
+		background: darken($bg1, 2.3%);
+		border-top: 1px solid $dark4;
+	}
+	.single .pager {
+		display: none;
 	}
 }
 
@@ -1082,9 +1113,6 @@ input, textarea, button {
 				}
 			}
 		}
-		.pager {
-			box-shadow: 0 0.1em 0.35em $dark3;
-		}
 	}
 }
 // pad
@@ -1196,10 +1224,6 @@ input, textarea, button {
 				}
 			}
 		}
-		.pager {
-			background: darken($bg1, 2.3%);
-			border-top: 1px solid $dark4;
-		}
 	}
 }
 // pad
@@ -1299,7 +1323,6 @@ input, textarea, button {
 @media only screen and (min-width: $pad_portrait-min) and (max-width: $pad_landscape-max){
 	#categories
 	{
-		background: $bg1;
 		.cat_list {
 			padding: 0 3em 3.75em;
 			li {
@@ -1323,16 +1346,12 @@ input, textarea, button {
 				}
 			}
 		}
-		.pager {
-			border-top: 1px solid $dark4;
-		}
 	}
 }
 // pc
 @media only screen and (min-width: $pc-min){
 	#categories
 	{
-		background: $bg1;
 		.cat_list {
 			padding: 0 0 2.8em;
 			li {
@@ -1365,26 +1384,206 @@ input, textarea, button {
 				}
 			}
 		}
-		.pager {
-			display: none;
-		}
 	}
 }
 
 
 //*****************************  movies  ******************************//
 
+#movie {
+	h3 {
+		a:first-of-type {
+			img {
+				width: 94px;
+				height: 150px;
+			}
+		}
+	}
+}
+// phone and pad
+@media only screen and (max-width: $pad_landscape-max){
+	#movie {
+		li {
+			padding: 1.2em 1em;
+			border-bottom: 1px solid lighten($dark4, 30%);
+			&:last-of-type {
+				border: none;
+			}
+			.item {
+				padding: 1px 0;
+				h3 {
+					float: left;
+					position: relative;
+					a:last-of-type {
+						width: 65vw;
+						margin: 0 0 0 5.4em;
+						font-size: 1.3em;
+						position: absolute;
+						left: 0;
+						top: -0.2em;
+					}
+				}
+				p {
+					margin: 2.4em 0 0 7em;
+				}
+			}
+		}
+	}
+}
 // phone_portrait
 @media only screen and (max-width: $phone_portrait-max){
-}
-// phone_landscape
-@media only screen and (min-width: $phone_landscape-min) and (max-width: $phone_landscape-max){
+	#movie {
+		li {
+			.item {
+				h3 {
+					a:first-of-type {
+						img {
+							width: 62px;
+							height: 100px;
+						}
+					}
+					a:last-of-type {
+						width: 60vw;
+						margin: 0 0 0 4.8em;
+						font-size: 1em;
+					}
+				}
+				p {
+					margin: 1.8em 0 0 4.8em;
+					font-size: 1em;
+				}
+			}
+		}
+	}
 }
 // pad
 @media only screen and (min-width: $pad_portrait-min) and (max-width: $pad_landscape-max){
+	#movie {
+		li {
+			padding: 3em 0;
+			margin: 0 5em;
+			.item {
+				h3 {
+					a:last-of-type {
+						margin: 0 0 0 5.6em;
+						font-size: 1.5em;
+					}
+				}
+				p {
+					font-size: 1.2em;
+				}
+			}
+		}
+	}
 }
 // pc
 @media only screen and (min-width: $pc-min){
+	#movie {
+		padding: 2.8em 0 0;
+		li {
+			float: left;
+			display: block;
+			width: 100px;
+			height: 13em;
+			position: relative;
+			.item {
+				position: absolute;
+				top: 0;
+				@include transition (width 0.3s $easing1);
+				h3 {
+					width: 100px;
+					line-height: 1.2;
+					padding: 3px 0 0.8em;
+					text-align: center;
+					@include transition (opacity 1s $easing1);
+					a {
+						color: $dark1;
+						font-size: 0.8em;
+					}
+				}
+				p {
+					width: 0px;
+					height: 0px;
+					overflow: hidden;
+					padding: 10px;
+					color: $dark1;
+					font-size: 0.8em;
+					@include transition-transform (0.3s, $easing1);
+					@include transform (scale(0, 1));
+				}
+			}
+		}
+		li:hover {
+			.item {
+				padding: 10px;
+				background: $bg1;
+				box-shadow: $shadow1;
+				top: -10px;
+				z-index: 5;
+				h3 {
+					a {
+						color: $primary1;
+					}
+				}
+				p {
+					width: 280px;
+					height: auto;
+					overflow: visible;
+				@include transform (scale(1, 1));
+				}
+			}
+		}
+		li:nth-child(12n+1),
+		li:nth-child(12n+2),
+		li:nth-child(12n+3),
+		li:nth-child(12n+4),
+		li:nth-child(12n+5),
+		li:nth-child(12n+6),
+		li:nth-child(12n+7),
+		li:nth-child(12n+8),
+		li:nth-child(12n+9) {
+			.item {
+				left: 0;
+				h3 {
+					float: left;
+				}
+				p {
+					margin: 0 0 0 100px;
+					@include transform-origin (0 50%);
+				}
+			}
+			&:hover .item {
+				left: -10px;
+			}
+		}
+		li:nth-child(12n+10),
+		li:nth-child(12n+11),
+		li:nth-child(12n+12) {
+			.item {
+				right: 0;
+				h3 {
+					float: right;
+				}
+				p {
+					margin: 0 100px 0 0;
+					@include transform-origin (100% 50%);
+				}
+			}
+			&:hover .item {
+				right: -10px;
+			}
+		}
+		ul:hover {
+			li {
+				h3 {
+					opacity: 0.35;
+				}
+				&:hover h3 {
+					opacity: 1;
+				}
+			}
+		}
+	}
 }
 
 
@@ -1504,7 +1703,7 @@ body {
 	#baidu_share, .bdselect_share_content, .sr-bdimgshare {
 		.bdshare-button-style1-32, .bdshare-button-style0-16 {
 			a {
-				background: url(../images/icon_share.png) no-repeat;
+				background: url(http://greenzorro.github.io/colacdn/blog_img_assets/icon_share.png) no-repeat;
 			}
 			.bds_more {
 				display: none;
@@ -1512,7 +1711,7 @@ body {
 		}
 		.bdshare-button-style1-32 {
 			a {
-				background: url(../images/icon_share.png) no-repeat;
+				background: url(http://greenzorro.github.io/colacdn/blog_img_assets/icon_share.png) no-repeat;
 				background-size: 160px 64px;
 			}
 			.bds_tsina {
@@ -1540,7 +1739,7 @@ body {
 		.bdshare-button-style0-16 {
 			a {
 				padding-left: 16px;
-				background: url(../images/icon_share.png) no-repeat;
+				background: url(http://greenzorro.github.io/colacdn/blog_img_assets/icon_share.png) no-repeat;
 				background-size: 80px 32px;
 			}
 			.bds_tsina {
@@ -1645,7 +1844,6 @@ body {
 @media only screen and (max-width: $phone_landscape-max){
 	.ds-thread {
 		padding: 1em 15px 0;
-		border-top: 1px solid $dark4;
 	}
 }
 // pad

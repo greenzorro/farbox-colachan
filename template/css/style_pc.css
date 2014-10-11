@@ -1,5 +1,8 @@
-.page_wrap { padding: 50px 0 0; }
-#category, #movie, #works, #about {
+#works {
+	padding: 50px 0 0;
+}
+#about {
+	padding: 50px 0 0;
 	background: #fff;
 }
 
@@ -32,33 +35,16 @@
 #category .typeintro h2 { margin:10px 0; }
 #category .typeintro h2 a { font-size:16px; text-decoration:none; font-weight:normal }
 
-/* movie */
-#movie .cloud { display: inline-block; margin: 0 0 30px; padding: 15px 20px; background: #f9ece4; border-radius: 5px; color: #777; font-size: 14px; }
-#movie .cloud a { padding: 0 10px; border-radius: 3px; color: #e18e6a; }
-#movie .cloud a:hover { background: #e18e6a; color: #fff; }
-#movie .item { float:left; width:100px; margin: 0 0 10px; position:relative; }
-#movie .item h3 { height:195px; text-align:center; font-size:12px; font-weight:normal; }
-#movie .item h3 a:first-of-type { display: block; width:94px; height: 150px; padding:3px; color:#333; }
-#movie .item h3 img { width:94px; height:150px; border-radius:5px; }
-#movie .item h3:hover img {
-	animation:shake .5s linear;
-	-webkit-animation:shake .5s linear;
-	-moz-animation:shake .5s linear;
-}
-#movie .item h3 a:last-of-type { display: block; width: auto; padding: 0 5px; color:#333; }
-#movie .item p { display:none; width:370px; min-height:165px; padding:15px; background:#333; color:#fff; font-size: 14px; position:absolute; top:0; z-index:500; }
-#movie .item p.to_right { left:100px; }
-#movie .item p.to_left { right:100px; }
-#movie .item:hover h3 { background:#333; }
-#movie .item:hover h3 a { color:#e18e6a; font-weight: bold; }
-
 /* works */
-#works .content { width:100%; padding:100px 0 80px; margin: 0 0 50px; background:#f5f5f5; border-radius:5px; box-shadow:inset 0 0 150px #ccc; font-family:"Roboto"; }
-#works .play { display:block; width:120px; height:120px; margin:auto; background:url(../images/works_play.png) center center no-repeat; text-indent:-9999px; }
+#works .content { width:100%; padding:150px 0 130px; margin: 0 0 50px; background:#f5f5f5; border-radius:5px; box-shadow:inset 0 0 150px #ccc; font-family:"droid-sans"; }
+#works .play { display:block; width:120px; height:120px; margin:auto; background:url(http://greenzorro.github.io/colacdn/blog_img_assets/works_play.png) center center no-repeat; text-indent:-9999px; }
 #works .slogen { margin:80px 0 0; font-size:30px; color:#333; text-align:center; }
 #works .area { width:420px; margin:30px auto 0; }
 #works .area span { float:left; display:block; width:110px; height:40px; line-height:40px; margin:0 15px; background:#58b798; border-radius:5px; font-size:18px; text-align:center; color:#fff; }
-#works .pic { height:0px; overflow:hidden; }
+#works .pic { width: 0px; height:0px; overflow:hidden; }
+.fancybox-wrap .cat_title { width: 650px; padding: 150px 0; text-align: center; }
+.fancybox-wrap .cat_title h2 { padding: 0 0 15px; font-size: 28px; color: #e18e6a; }
+.fancybox-wrap .cat_title p { font-size: 18px; color: #e18e6a; }
 
 /* about */
 #about { padding:20px 0 0; }
@@ -72,7 +58,7 @@
 	-moz-transform: rotate(45deg); /* Firefox */
 }
 #about .timeline .dot { display:inline-block; width:10px; height:10px; border:2px solid #fff; background:#e18e6a; border-radius:6px; }
-#about .timeline .year { font-size:18px; font-family:"Roboto"; }
+#about .timeline .year { font-size:18px; font-family:"droid-sans"; }
 #about .timeline .time1 { left:120px;
 	animation:about_time1 1s;
 	-webkit-animation:about_time1 1s;
@@ -93,8 +79,8 @@
 	-webkit-animation:about_time4 1s;
 	-moz-animation:about_time4 1s;
 }
-#about .map { float:right; width:330px; height:290px; background:url(../images/about_map.png) center center no-repeat; }
-#about .skills { float:left; width:450px; padding:35px; background:url(../images/about_pattern.jpg) repeat; border-radius:5px; position:relative; }
+#about .map { float:right; width:330px; height:290px; background:url(http://greenzorro.github.io/colacdn/blog_img_assets/about_map.png) center center no-repeat; }
+#about .skills { float:left; width:450px; padding:35px; background:url(http://greenzorro.github.io/colacdn/blog_img_assets/about_pattern.jpg) repeat; border-radius:5px; position:relative; }
 #about .skills h2 { margin:0 0 60px; font-size:24px; font-weight:normal; }
 #about .skills a { display:block; width:100px; height:40px; line-height:40px; background:#dfdfdf; border-radius:5px; text-align:center; color:#fff; font-size:14px; position:absolute; right:35px; top:30px; }
 #about .skills a:hover { background:#ccc; }
@@ -109,7 +95,7 @@
 #about .skills .skill_list .skill_js { font-size:14px; }
 #about .skills .skill_list .skill_jade { font-size:18px; }
 #about .comment_list { padding:30px 0 0; }
-#about .comment_list h2 { line-height:90px; padding:120px 0 0; background:url(../images/about_cat.jpg) center bottom no-repeat; font-size:24px; color:#58b798; text-align:center; font-weight:normal; }
+#about .comment_list h2 { line-height:90px; padding:120px 0 0; background:url(http://greenzorro.github.io/colacdn/blog_img_assets/about_cat.jpg) center bottom no-repeat; font-size:24px; color:#58b798; text-align:center; font-weight:normal; }
 #about .comment_list .row { float:left; width:50%; }
 #about .comment_list .comment_item { padding:25px; margin:0 10px 20px; background:#f5f5f5; border-radius:5px; font-size:12px; }
 #about .comment_list .comment_item h4 { font-size:12px; color:#e18e6a; }
