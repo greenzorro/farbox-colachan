@@ -18,6 +18,7 @@ $(document).on("pageinit",function (event) {
 	scrollPosition();  //回顶部等页面滚动效果
 	listType();  //列表页文章类型判断，文字or图片
 	imgContain();  //详情页段落是否包含图片
+	works();  //设计作品
 
 	// 基础功能
 
@@ -182,6 +183,22 @@ function imgContain () {
 			if ($(this).find("img").length > 0) {
 				$(this).addClass("img_inside");
 			};
+		})
+	};
+}
+
+
+// 设计作品
+function works () {
+	if ($("#works").length > 0 && getWinSize() < 3) {  //在手机上直接展现作品图片，而不是幻灯播放
+		$("#works .pic a").each(function () {
+			if ($(this).hasClass("title")) {
+				$(this).remove();
+			}
+			else {
+				var imgSrc = $(this).attr("href");
+				$(this).replaceWith("<img src='" + imgSrc + "'>");
+			}
 		})
 	};
 }
