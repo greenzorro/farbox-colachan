@@ -1601,12 +1601,11 @@ input, textarea, button {
 // phone
 @media only screen and (max-width: $phone_landscape-max){
 	#works {
-		padding: 0 0.6em;
 		.play {
 			display: none;
 		}
 		.pic {
-			padding: 0 0 2em;
+			padding: 0 0.6em 2em;
 			text-align: center;
 			.title_content {
 				padding: 3em 0 1.5em;
