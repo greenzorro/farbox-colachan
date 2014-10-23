@@ -823,6 +823,38 @@ input, textarea, button {
 		border: none;
 		border-bottom: 1px solid $dark4;
 	}
+	code, tt {
+		padding: 1px 3px;
+		font-family: Inconsolata, monospace, sans-serif;
+		font-size: 0.85em;
+		white-space: pre-wrap;
+		border: 1px solid #E3EDF3;
+		background: #f7f7f9;
+		color: #d14;
+		border-radius: 2px;
+	}
+	pre {
+		box-sizing: border-box;
+		margin: 1.6em 0;
+		border: 1px solid #E3EDF3;
+		width: 100%;
+		padding: 10px;
+		font-family: Inconsolata, monospace, sans-serif;
+		font-size: 0.9em;
+		white-space: pre;
+		overflow: auto;
+		background: #F7FAFB;
+		border-radius: 3px;
+	}
+	pre code, tt {
+		font-size: inherit;
+		white-space: -moz-pre-wrap;
+		white-space: pre-wrap;
+		background: transparent;
+		border: none;
+		color: #333;
+		padding: 0;
+	}
 }
 
 
