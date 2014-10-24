@@ -823,6 +823,38 @@ input, textarea, button {
 		border: none;
 		border-bottom: 1px solid $dark4;
 	}
+	code, tt {
+		padding: 1px 3px;
+		font-family: Inconsolata, monospace, sans-serif;
+		font-size: 0.85em;
+		white-space: pre-wrap;
+		border: 1px solid #E3EDF3;
+		background: #f7f7f9;
+		color: #d14;
+		border-radius: 2px;
+	}
+	pre {
+		box-sizing: border-box;
+		margin: 1.6em 0;
+		border: 1px solid #E3EDF3;
+		width: 100%;
+		padding: 10px;
+		font-family: Inconsolata, monospace, sans-serif;
+		font-size: 0.9em;
+		white-space: pre;
+		overflow: auto;
+		background: #F7FAFB;
+		border-radius: 3px;
+	}
+	pre code, tt {
+		font-size: inherit;
+		white-space: -moz-pre-wrap;
+		white-space: pre-wrap;
+		background: transparent;
+		border: none;
+		color: #333;
+		padding: 0;
+	}
 }
 
 
@@ -1708,17 +1740,295 @@ input, textarea, button {
 
 //*****************************  about  *******************************//
 
+#about {
+	.intro {
+		background: url(http://greenzorro.github.io/colacdn/blog_img_assets/bg_about.jpg) no-repeat center center;
+		background-size: cover;
+		.avatar {
+			margin: 0 auto;
+			background: url(http://greenzorro.github.io/colacdn/blog_img_assets/avatar.jpg) no-repeat center center;
+			background-size: cover;
+			border-radius: 50%;
+		}
+		p {
+			padding: 1.5em 0 0;
+			text-align: center;
+			color: $light1;
+		}
+	}
+	h2.title {
+		padding: 5em 0 2em;
+		text-align: center;
+		font-size: 1.2em;
+		color: $accent3;
+		strong {
+			display: block;
+			line-height: 1;
+			font-size: 5em;
+		}
+	}
+	.skills {
+		li {
+			float: left;
+			.item {
+				margin: auto;
+				.text {
+					p {
+						text-align: center;
+						color: $primary1;
+					}
+					span {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+	.remark {
+		.myself {
+			text-align: center;
+			p {
+				padding: 1em 0;
+			}
+		}
+		.friends {
+			padding: 2em 0 0;
+			.column {
+				.item {
+					padding: 2em;
+					background: $bg1;
+					h4 {
+						padding: 0 0 1em;
+						span {
+							padding: 0 0.5em 0 0;
+							font-size: 1.5em;
+							color: #c16570;
+						}
+					}
+					.content {
+						p {
+							padding: 0.3em 0;
+							text-indent: 2em;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+// phone
+@media only screen and (max-width: $phone_landscape-max){
+	#about {
+		.intro {
+			padding: 3em 0;
+			.avatar {
+				width: 6em;
+				height: 6em;
+			}
+		}
+		.skills {
+			li {
+				margin: 0 0 1em;
+				.item {
+					width: 80px;
+					height: 80px;
+					.pie_left_wrap,
+					.pie_left {
+						clip: rect(auto,40px,auto,auto);
+					}
+					.pie_right_wrap,
+					.pie_right {
+						clip: rect(auto,auto,auto,40px);
+					}
+					.text {
+						width: 74px;
+						height: 74px;
+						left: 3px;
+						top: 3px;
+						p {
+							line-height: 74px;
+							font-size: 1.2em;
+						}
+					}
+				}
+			}
+		}
+		.remark .friends .item {
+			margin: 0 0 2em;
+			border-top: 1px solid $dark4;
+			border-bottom: 1px solid $dark4;
+		}
+	}
+}
 // phone_portrait
 @media only screen and (max-width: $phone_portrait-max){
+	#about {
+		.skills {
+			padding: 0 1em;
+			li {
+				width: 33.33%;
+			}
+		}
+	}
 }
 // phone_landscape
 @media only screen and (min-width: $phone_landscape-min) and (max-width: $phone_landscape-max){
+	#about {
+		.skills {
+			padding: 0 2em;
+			li {
+				width: 20%;
+			}
+		}
+	}
 }
 // pad
 @media only screen and (min-width: $pad_portrait-min) and (max-width: $pad_landscape-max){
+	#about {
+		.intro {
+			padding: 8em 0 5em;
+			background: none;
+			.avatar {
+				width: 10em;
+				height: 10em;
+				border: 1px solid $dark4;
+			}
+			p {
+				color: $dark1;
+				font-size: 1.2em;
+			}
+		}
+		.skills {
+			li {
+				width: 20%;
+				.item {
+					width: 116px;
+					height: 116px;
+					.pie_left_wrap,
+					.pie_left {
+						clip: rect(auto,58px,auto,auto);
+					}
+					.pie_right_wrap,
+					.pie_right {
+						clip: rect(auto,auto,auto,58px);
+					}
+					.text {
+						width: 110px;
+						height: 110px;
+						left: 3px;
+						top: 3px;
+						p {
+							line-height: 110px;
+							font-size: 1.5em;
+						}
+					}
+				}
+			}
+		}
+		.remark .friends {
+			padding: 2em 0;
+			.item {
+				width: 70%;
+				margin: 0 auto 2em;
+				box-shadow: $shadow1;
+			}
+		}
+	}
+}
+// pad_portrait
+@media only screen and (min-width: $pad_portrait-min) and (max-width: $pad_portrait-max){
+	#about {
+		.skills {
+			padding: 0 2em;
+			ul {
+				padding: 1em 0 0;
+				li {
+					margin: 0 0 1.5em;
+				}
+			}
+		}
+	}
+}
+// pad_landscape
+@media only screen and (min-width: $pad_landscape-min) and (max-width: $pad_landscape-max){
+	#about {
+		.skills {
+			padding: 0 5em;
+			ul {
+				padding: 2em 0 0;
+				li {
+					margin: 0 0 3em;
+				}
+			}
+		}
+	}
 }
 // pc
 @media only screen and (min-width: $pc-min){
+	#about {
+		.intro {
+			padding: 8em 0;
+			.avatar {
+				width: 10em;
+				height: 10em;
+			}
+			p {
+				font-size: 1.2em;
+			}
+		}
+		.skills {
+			max-width: 60em;
+			margin: auto;
+			h2.title {
+				strong {
+					line-height: 0.5;
+					font-size: 8em;
+				}
+			}
+			ul {
+				padding: 2em 0 0;
+				li {
+					width: 20%;
+					margin: 0 0 3em;
+					.item {
+						width: 130px;
+						height: 130px;
+						.pie_left_wrap,
+						.pie_left {
+							clip: rect(auto,65px,auto,auto);
+						}
+						.pie_right_wrap,
+						.pie_right {
+							clip: rect(auto,auto,auto,65px);
+						}
+						.text {
+							width: 122px;
+							height: 122px;
+							left: 4px;
+							top: 4px;
+							p {
+								line-height: 122px;
+								font-size: 1.8em;
+							}
+						}
+					}
+				}
+			}
+		}
+		.remark .friends {
+			.column {
+				float: left;
+				width: 48.5%;
+				&:first-of-type {
+					margin: 0 3% 0 0;
+				}
+				.item {
+					margin: 0 0 2em;
+					box-shadow: $shadow1;
+				}
+			}
+		}
+	}
 }
 
 
@@ -1785,16 +2095,29 @@ a {
 
 
 //*********************************************************************//
-//                          basic functions                            //
-//*********************************************************************//
-
-
-
-
-
-//*********************************************************************//
 //                              plugins                                //
 //*********************************************************************//
+
+
+/* circle progress style */
+
+.circle_progress { width: 200px; height: 200px; background: $primary1; border-radius: 50%; position: relative; }
+.circle_progress .pie_left_wrap,
+.circle_progress .pie_left,
+.circle_progress .pie_right_wrap,
+.circle_progress .pie_right { display: block; width: 100%; height: 100%; position: absolute; left: 0; top: 0; }
+.circle_progress .pie_left_wrap,
+.circle_progress .pie_left { clip: rect(auto,100px,auto,auto); }
+.circle_progress .pie_right_wrap,
+.circle_progress .pie_right { clip: rect(auto,auto,auto,100px); }
+.circle_progress .pie_left,
+.circle_progress .pie_right { background: $primary3; border-radius: 50%;
+	transition: transform 0.5s linear;
+	-webkit-transition: -webkit-transform 0.5s linear;
+	transform-origin: 50% 50%;
+	-webkit-transform-origin: 50% 50%;
+}
+.circle_progress .center { width: 180px; height: 180px; background: $bg2; border-radius: 50%; position: absolute; left: 10px; top: 10px; }
 
 
 //**************************  baidu share  ****************************//
