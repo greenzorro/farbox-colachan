@@ -1403,6 +1403,7 @@ input, textarea, button {
 					margin: 0 0.9em;
 					span {
 						border-radius: 0.2em;
+						opacity: 0;
 						@include transition-transform (1s, $easing1);
 						@include transform-origin (50% 50%);
 						@include transform (scale(1));
@@ -1410,6 +1411,33 @@ input, textarea, button {
 							@include transform (scale(1.05));
 						}
 					}
+				}
+				&:nth-child(1) .pic span {
+					@include animation (fadein 1.2s $easing1 0s both);
+				}
+				&:nth-child(2) .pic span {
+					@include animation (fadein 1.2s $easing1 0.05s both);
+				}
+				&:nth-child(3) .pic span {
+					@include animation (fadein 1.2s $easing1 0.1s both);
+				}
+				&:nth-child(4) .pic span {
+					@include animation (fadein 1.2s $easing1 0.15s both);
+				}
+				&:nth-child(5) .pic span {
+					@include animation (fadein 1.2s $easing1 0.2s both);
+				}
+				&:nth-child(6) .pic span {
+					@include animation (fadein 1.2s $easing1 0.25s both);
+				}
+				&:nth-child(7) .pic span {
+					@include animation (fadein 1.2s $easing1 0.3s both);
+				}
+				&:nth-child(8) .pic span {
+					@include animation (fadein 1.2s $easing1 0.35s both);
+				}
+				&:nth-child(9) .pic span {
+					@include animation (fadein 1.2s $easing1 0.4s both);
 				}
 				h2 {
 					margin: 1.5em 0.9em 0.5em;
@@ -1436,6 +1464,8 @@ input, textarea, button {
 				width: 94px;
 				height: 150px;
 				border-radius: 0.2em;
+				opacity: 0;
+				@include animation (fadein 1.2s $easing1 both);
 			}
 		}
 	}
