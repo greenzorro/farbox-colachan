@@ -1761,6 +1761,8 @@ input, textarea, button {
 @media only screen and (min-width: $pc-min){
 	#works {
 		padding: 2.8em 0 0;
+		opacity: 0;
+		@include animation (fadein 1.2s $easing1 both);
 		.play {
 			border-radius: 0.5em;
 		}
@@ -1998,6 +2000,8 @@ input, textarea, button {
 	#about {
 		.intro {
 			padding: 8em 0;
+			opacity: 0;
+			@include animation (fadein 1.2s $easing1 both);
 			.avatar {
 				width: 10em;
 				height: 10em;
