@@ -1669,7 +1669,7 @@ input, textarea, button {
 				width: 5.5em;
 				height: 5.5em;
 				margin: auto;
-				border: 0.5em solid $accent3;
+				border: 0.5em solid $primary1;
 				border-radius: 50%;
 				position: relative;
 				&:after {
@@ -1678,7 +1678,7 @@ input, textarea, button {
 					width: 0;
 					height: 0;
 					overflow: hidden;
-					border-left: 1.3em solid $accent3;
+					border-left: 1.3em solid $primary1;
 					border-top: 1em dashed transparent;
 					border-bottom: 1em dashed transparent;
 					position: absolute;
@@ -1699,7 +1699,7 @@ input, textarea, button {
 					width: 7em;
 					padding: 0.5em 0;
 					margin: 0 0.8em;
-					background: $primary1;
+					background: $accent3;
 					border-radius: 0.3em;
 					font-size: 0.9em;
 					color: $light1;
@@ -2066,6 +2066,66 @@ a {
 
 
 //*********************************************************************//
+//                         404 page not found                          //
+//*********************************************************************//
+
+
+.not_found {
+	text-align: center;
+	h1 {
+		line-height: 1.2em;
+		font-size: 5em;
+	}
+	.img {
+		background: url(http://greenzorro.github.io/colacdn/blog_img_assets/not_found.png) no-repeat center center;
+		background-size: contain;
+	}
+	a {
+		display: block;
+		width: 12.5em;
+		height: 3em;
+		line-height: 3em;
+		margin: 0 auto;
+		background: $primary1;
+		border-radius: 0.2em;
+		color: $light1;
+	}
+}
+// phone
+@media only screen and (max-width: $phone_landscape-max){
+	.not_found {
+		padding: 4em 0;
+		h1 {
+			font-size: 3.5em;
+		}
+		.img {
+			height: 8em;
+			margin: 3em auto;
+		}
+	}
+}
+// pad and pc
+@media only screen and (min-width: $pad_portrait-min){
+	.not_found {
+		padding: 6em 0;
+		h1 {
+			font-size: 5em;
+		}
+		p {
+			font-size: 1.2em;
+		}
+		.img {
+			height: 9em;
+			margin: 4em auto;
+		}
+	}
+}
+
+
+
+
+
+//*********************************************************************//
 //                         non-html5 browser                           //
 //*********************************************************************//
 
@@ -2099,7 +2159,7 @@ a {
 //*********************************************************************//
 
 
-/* circle progress style */
+//************************  circle progress  **************************//
 
 .circle_progress { width: 200px; height: 200px; background: $primary1; border-radius: 50%; position: relative; }
 .circle_progress .pie_left_wrap,
