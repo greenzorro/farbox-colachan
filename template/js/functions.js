@@ -1,17 +1,7 @@
-// 页面即将初始化
-$(document).on("pagebeforecreate",function (event) {
-	var explorer = explorerType(false);
-	if (explorer["type"] == "ie" && explorer["version"] < 9) {
-		$("body").addClass("non_html5_bg");
-		$("body").html("<div class='non_html5'><h1>请使用支持html5的浏览器打开</h1><p>比如：<a href='http://down.tech.sina.com.cn/content/40975.html' target='_blank'>谷歌浏览器</a>、<a href='https://www.mozilla.org/zh-CN/firefox/new/' target='_blank'>火狐浏览器</a>，或者当前浏览器的极速模式</p></div>");
-	};
-})
-
-
-// 页面已初始化
-$(document).on("pageinit",function (event) {
+$(function () {
 
 	// 页面效果
+	html5Support();  //判断浏览器是否支持html5
 	mainMenu();  //主菜单
 	searchForm();  //搜索框
 	qrCode();  //二维码
@@ -23,7 +13,6 @@ $(document).on("pageinit",function (event) {
 
 	// 插件效果
 	fancybox();  //fancybox弹窗相册
-	cnzz();  //cnzz统计代码
 
 })
 
@@ -36,11 +25,21 @@ $(document).on("pageinit",function (event) {
 //*********************************************************************//
 
 
+// 判断浏览器是否支持html5
+function html5Support () {
+	var explorer = explorerType(false);
+	if (explorer["type"] == "ie" && explorer["version"] < 9) {
+		$("body").addClass("non_html5_bg");
+		$("body").html("<div class='non_html5'><h1>请使用支持html5的浏览器打开</h1><p>比如：<a href='http://down.tech.sina.com.cn/content/40975.html' target='_blank'>谷歌浏览器</a>、<a href='https://www.mozilla.org/zh-CN/firefox/new/' target='_blank'>火狐浏览器</a>，或者当前浏览器的极速模式</p></div>");
+	};
+}
+
+
 // 主菜单
 function mainMenu () {
 	var flag = 0;
 	var menu = $(".header .menu_wrapper");
-	$(".header .icon-icon_menu").on("tap", toggleMenu);  //点击菜单按钮
+	$(".header .icon-icon_menu").on("click", toggleMenu);  //点击菜单按钮
 	// 切换菜单状态
 	function toggleMenu () {
 		if (getWinSize() < 3) {
@@ -362,11 +361,4 @@ function fancybox () {
 			nextClick : true
 		});
 	};
-}
-
-
-// cnzz统计代码
-function cnzz () {
-	var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-	$(".statistic").html(unescape("%3Cspan id='cnzz_stat_icon_2994887'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/stat.php%3Fid%3D2994887' type='text/javascript'%3E%3C/script%3E"));
 }

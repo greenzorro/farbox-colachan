@@ -32,12 +32,12 @@
 
 		.pager.clearfix
 			if pre_one
-				a.paging.pre(href='{{pre_one.url}}', data-ajax="false")
+				a.paging.pre(href='{{pre_one.url}}')
 					.arrow.icon-arrow2_left
 					span
 						{{ pre_one.title }}
 			if next_one
-				a.paging.next(href='{{next_one.url}}', data-ajax="false")
+				a.paging.next(href='{{next_one.url}}')
 					.arrow.icon-arrow2_right
 					span
 						{{ next_one.title }}
