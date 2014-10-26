@@ -275,6 +275,20 @@ function explorerType (detailed) { //参数控制是否显示浏览器完整版�
 }
 
 
+// 页面滚动开关，传入1允许滚动，传入0禁止滚动
+function scrollSwtich (flag) {
+	if (flag) {
+		window.removeEventListener("scroll", preventScroll, false);
+	}
+	else {
+		window.addEventListener("scroll", preventScroll, false);
+	}
+	function preventScroll (event) {
+		window.scrollTo(0, 0);
+	}
+}
+
+
 
 
 

@@ -573,25 +573,25 @@ input, textarea, button {
 					width: 100%;
 					position: absolute;
 					left: 0;
-					top: 0.8em;
+					top: -3em;
 					@include transition-transform (0.3s,$easing1);
-					@include transform-origin (50% 40%);
+					@include transform-origin (50% 36%);
 					@include transform (scale(0));
 					.qr_code {
-						width: 9.375em;
+						width: 12em;
 						margin: 0 auto;
 						padding: 0 0 0.5em;
 						background: $bg1;
 						box-shadow: $shadow2;
 						.img {
-							width: 9.375em;
-							height: 9.375em;
+							width: 12em;
+							height: 12em;
 							background: url(http://greenzorro.github.io/colacdn/blog_img_assets/qrcode.jpg) no-repeat center center;
-							background-size: 150px 150px;
+							background-size: cover;
 						}
 						p {
 							color: $dark1;
-							font-size: 0.75em;
+							font-size: 0.9em;
 						}
 					}
 				}
@@ -656,6 +656,15 @@ input, textarea, button {
 		position: relative;
 		.intro, .follow, .down {
 			display: block;
+		}
+		.intro {
+			@include animation (fadein_up 0.5s $easing1 0.3s both);
+		}
+		.intro .qr {
+			@include animation (fadein_up 0.5s $easing1 0.6s both);
+		}
+		.follow {
+			@include animation (fadein_up 0.5s $easing1 0.8s both);
 		}
 		.down {
 			width: 100%;
@@ -751,7 +760,7 @@ input, textarea, button {
 }
 
 
-//*************************  content format  **************************//
+//*************************  context format  **************************//
 
 .post_body {
 	img {
@@ -1776,6 +1785,7 @@ input, textarea, button {
 	.intro {
 		background: url(http://greenzorro.github.io/colacdn/blog_img_assets/bg_about.jpg) no-repeat center center;
 		background-size: cover;
+		@include animation (fadein 1.2s $easing1 both);
 		.avatar {
 			margin: 0 auto;
 			background: url(http://greenzorro.github.io/colacdn/blog_img_assets/avatar.jpg) no-repeat center center;
@@ -2001,7 +2011,6 @@ input, textarea, button {
 		.intro {
 			padding: 8em 0;
 			opacity: 0;
-			@include animation (fadein 1.2s $easing1 both);
 			.avatar {
 				width: 10em;
 				height: 10em;
@@ -2059,6 +2068,11 @@ input, textarea, button {
 				.item {
 					margin: 0 0 2em;
 					box-shadow: $shadow1;
+					.content {
+						p {
+							font-size: 0.9em;
+						}
+					}
 				}
 			}
 		}
@@ -2093,6 +2107,14 @@ a {
 @-webkit-keyframes zoomin {
 	0% { -webkit-transform: scale(0); }
 	100% { -webkit-transform: scale(1); }
+}
+@keyframes fadein_up {
+	0% { opacity: 0; transform: translate(0, 2em); }
+	100% { opacity: 1; transform: translate(0, 0); }
+}
+@-webkit-keyframes fadein_up {
+	0% { opacity: 0; -webkit-transform: translate(0, 2em); }
+	100% { opacity: 1; -webkit-transform: translate(0, 0); }
 }
 
 
