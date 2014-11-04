@@ -12,8 +12,6 @@ html
 			title= request.args.s or post.title or tags.join('+') or category.title or site.title
 		load("http://greenzorro.github.io/colacdn/assets/css/reset.css")
 		load('/template/css/fonts.css /template/css/style.scss')
-		load("http://greenzorro.github.io/colacdn/assets/js/jquery-latest.js")
-		load("/template/js/functions.js")
 
 	body
 		#body_wrapper
@@ -21,6 +19,12 @@ html
 			#main
 				block content
 			block footer
+
+		load("http://greenzorro.github.io/colacdn/assets/js/jquery-latest.js")
+		if request.url_without_host == "/works"
+			load('/template/frameworks/fancybox/jquery.fancybox.js /template/frameworks/fancybox/jquery.fancybox.css /template/frameworks/fancybox/jquery.mousewheel-3.0.6.pack.js')
+		load("/template/js/functions.js")
+
 		.statistic
 			script.
 				var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_2994887'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/stat.php%3Fid%3D2994887' type='text/javascript'%3E%3C/script%3E"));
