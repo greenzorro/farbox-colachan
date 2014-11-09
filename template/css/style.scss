@@ -29,8 +29,8 @@ $easing1: cubic-bezier(0.15, 0.95, 0.41, 0.95);
 
 
 // responsive break points
-$phone_portrait-max: 33.36em;  //533px
-$phone_landscape-min: 33.37em;  //534px
+$phone_portrait-max: 29.99em;  //479px
+$phone_landscape-min: 30em;  //480px
 $phone_landscape-max: 47.99em;  //767px
 $pad_portrait-min: 48em;  //768px
 $pad_portrait-max: 63.99em;  //1023px
@@ -360,7 +360,7 @@ input, textarea, button {
 			display: inline-block;
 			height: 4em;
 			line-height: 4em;
-			padding: 0 2em;
+			padding: 0 1.5em;
 		}
 	}
 }
@@ -517,6 +517,7 @@ input, textarea, button {
 							width: 100%;
 							height: 60%;
 							background: $primary1;
+							border-radius: 0.2em;
 							box-shadow: $shadow1;
 							position: absolute;
 							left: 0;
@@ -615,6 +616,7 @@ input, textarea, button {
 				height: 1.5em;
 				padding: 0.3em 0.5em;
 				border: 1px solid $light3;
+				border-radius: 0.2em;
 				a {
 					display: inline-block;
 					background: url(http://greenzorro.github.io/colacdn/blog_img_assets/social.png) no-repeat;
@@ -947,6 +949,7 @@ input, textarea, button {
 	}
 	.list .pager {
 		background: $bg1;
+		border-radius: 0.2em;
 		box-shadow: 0 0.1em 0.35em $dark3;
 	}
 	.detail .pager {
@@ -984,6 +987,7 @@ input, textarea, button {
 	}
 	.list .pager {
 		background: $bg1;
+		border-radius: 0.2em;
 		box-shadow: 0 0.1em 0.35em $dark3;
 	}
 	.detail .pager {
@@ -1105,6 +1109,7 @@ input, textarea, button {
 		.post {
 			margin: 0 0 1.875em;
 			background: $bg1;
+			border-radius: 0.2em;
 			box-shadow: 0 0.1em 0.35em $dark3;
 			.content {
 				padding: 2.5em;
@@ -1220,6 +1225,7 @@ input, textarea, button {
 @media only screen and (min-width: $pad_portrait-min){
 	.detail {
 		background: $bg1;
+		border-radius: 0.2em;
 		box-shadow: 0 0.1em 0.35em $dark3;
 		.content {
 			padding: 2.5em;
@@ -2079,6 +2085,125 @@ input, textarea, button {
 	}
 }
 
+
+//*****************************  tools  *******************************//
+
+#tools {
+	text-align: center;
+	h1.title {
+	}
+	p.intro {
+		max-width: 30em;
+		margin: auto;
+	}
+	ul {
+		li {
+			a {
+				display: block;
+				line-height: 0;
+				border: 2px solid $dark4;
+				border-radius: 0.2em;
+				img {
+					width: 100%;
+				}
+			}
+			h2 {
+				padding: 1em 0 0.5em;
+				font-size: 1em;
+			}
+			p {
+				font-size: 0.9em;
+				color: $dark2;
+			}
+		}
+	}
+}
+// phone
+@media only screen and (max-width: $phone_landscape-max){
+	#tools {
+		h1.title {
+			padding: 2em 1em 0;
+			font-size: 2em;
+		}
+		p.intro {
+			padding: 0 1em 3em;
+			font-size: 1em;
+		}
+		ul {
+			padding: 0 1em;
+		}
+	}
+}
+// phone_portrait
+@media only screen and (max-width: $phone_portrait-max){
+	#tools {
+		ul {
+			li {
+				padding: 0 0 3em;
+			}
+		}
+	}
+}
+// phone_landscape
+@media only screen and (min-width: $phone_landscape-min) and (max-width: $phone_landscape-max){
+	#tools {
+		ul {
+			li {
+				float: left;
+				width: 44%;
+				padding: 0 3% 1em;
+				p {
+					height: 10em;
+				}
+			}
+		}
+	}
+}
+// pad and pc
+@media only screen and (min-width: $pad_portrait-min){
+	#tools {
+		h1.title {
+			padding: 2em 0 0;
+			font-size: 2.5em;
+		}
+		p.intro {
+			padding: 0 0 3em;
+			font-size: 1.2em;
+		}
+	}
+}
+// pad
+@media only screen and (min-width: $pad_portrait-min) and (max-width: $pad_landscape-max){
+	#tools {
+		ul {
+			width: 85%;
+			margin: auto;
+			li {
+				float: left;
+				width: 44%;
+				padding: 0 3% 3em;
+				p {
+					height: 7em;
+				}
+			}
+		}
+	}
+}
+// pc
+@media only screen and (min-width: $pc-min){
+	#tools {
+		ul {
+			li {
+				float: left;
+				width: 29%;
+				padding: 0 2% 1em;
+				p {
+					height: 7em;
+				}
+			}
+		}
+	}
+}
 
 
 
