@@ -1,12 +1,12 @@
 .detail
-	.post
+	article.post
 		.content
 			h1.title= post.title
 			.post_body= post.content
 			.info.clearfix
 				.date
 					.icon-icon_clock
-					span
+					time
 						{{post.date.format('%Y-%m-%d %H:%M')}}
 				.visitors
 					.icon-icon_book

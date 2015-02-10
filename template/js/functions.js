@@ -8,6 +8,7 @@ $(function () {
 	scrollPosition();  //回顶部等页面滚动效果
 	listType();  //列表页文章类型判断，文字or图片
 	imgContain();  //详情页段落是否包含图片
+	movies();  //电影收藏
 	works();  //设计作品
 	aboutProgress();  //关于页面的环形进度条
 
@@ -181,6 +182,18 @@ function imgContain () {
 			if ($(this).find("img").length > 0) {
 				$(this).addClass("img_inside");
 			};
+		})
+	};
+}
+
+
+// 电影收藏
+function movies () {
+	if ($("#movie").length > 0 && getWinSize() > 4) {  //在手机上直接展现作品图片，而不是幻灯播放
+		$("#movie li h3").hover(function () {
+			$(this).parent().addClass("hover");
+		}, function () {
+			$(this).parent().removeClass("hover");
 		})
 	};
 }

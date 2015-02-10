@@ -1,6 +1,6 @@
 .list.clearfix
 	for post in posts
-		.post
+		article.post
 			.content
 				h1.title
 					a(href=post.url)= post.title
@@ -8,7 +8,7 @@
 				.info.clearfix
 					.date
 						.icon-icon_clock
-						span
+						time
 							{{post.date.format('%Y-%m-%d')}}
 					.visitors
 						.icon-icon_book

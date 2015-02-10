@@ -1,12 +1,4 @@
 @font-face {
-	font-family: droid-sans;
-	src: url('../fonts/DroidSans.ttf');
-}
-@font-face {
-	font-family: forte-mt;
-	src: url('../fonts/forte-mt.ttf');
-}
-@font-face {
 	font-family: 'cola_icon';
 	src:url('../fonts/cola_icon.eot?-54fria');
 	src:url('../fonts/cola_icon.eot?#iefix-54fria') format('embedded-opentype'),

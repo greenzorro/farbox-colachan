@@ -1,16 +1,34 @@
 html
 	head
-		meta(content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0", name="viewport")
+		meta(content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=yes", name="viewport")
 		meta(content="yes", name="apple-mobile-web-app-capable")
 		meta(content="black", name="apple-mobile-web-app-status-bar-style")
 		meta(content="telephone=no", name="format-detection")
 		meta(name="renderer", content="webkit")
 		meta(name="keywords", content=site.configs.keywords.escaped)
 		meta(name="description", content=site.raw_content.escaped)
-		link(rel="shortcut icon", href="/template/images/favicon.ico")
+		link(rel="apple-touch-icon", sizes="57x57", href="http://greenzorro.github.io/colacdn/blog_img_assets/favicons/apple-touch-icon-57x57.png")
+		link(rel="apple-touch-icon", sizes="114x114", href="http://greenzorro.github.io/colacdn/blog_img_assets/favicons/apple-touch-icon-114x114.png")
+		link(rel="apple-touch-icon", sizes="72x72", href="http://greenzorro.github.io/colacdn/blog_img_assets/favicons/apple-touch-icon-72x72.png")
+		link(rel="apple-touch-icon", sizes="144x144", href="http://greenzorro.github.io/colacdn/blog_img_assets/favicons/apple-touch-icon-144x144.png")
+		link(rel="apple-touch-icon", sizes="60x60", href="http://greenzorro.github.io/colacdn/blog_img_assets/favicons/apple-touch-icon-60x60.png")
+		link(rel="apple-touch-icon", sizes="120x120", href="http://greenzorro.github.io/colacdn/blog_img_assets/favicons/apple-touch-icon-120x120.png")
+		link(rel="apple-touch-icon", sizes="76x76", href="http://greenzorro.github.io/colacdn/blog_img_assets/favicons/apple-touch-icon-76x76.png")
+		link(rel="apple-touch-icon", sizes="152x152", href="http://greenzorro.github.io/colacdn/blog_img_assets/favicons/apple-touch-icon-152x152.png")
+		link(rel="apple-touch-icon", sizes="180x180", href="http://greenzorro.github.io/colacdn/blog_img_assets/favicons/apple-touch-icon-180x180.png")
+		link(rel="shortcut icon", href="http://greenzorro.github.io/colacdn/blog_img_assets/favicons/favicon.ico")
+		link(rel="icon", type="image/png", sizes="192x192", href="http://greenzorro.github.io/colacdn/blog_img_assets/favicons/favicon-192x192.png")
+		link(rel="icon", type="image/png", sizes="160x160", href="http://greenzorro.github.io/colacdn/blog_img_assets/favicons/favicon-160x160.png")
+		link(rel="icon", type="image/png", sizes="96x96", href="http://greenzorro.github.io/colacdn/blog_img_assets/favicons/favicon-96x96.png")
+		link(rel="icon", type="image/png", sizes="16x16", href="http://greenzorro.github.io/colacdn/blog_img_assets/favicons/favicon-16x16.png")
+		link(rel="icon", type="image/png", sizes="32x32", href="http://greenzorro.github.io/colacdn/blog_img_assets/favicons/favicon-32x32.png")
+		meta(name="msapplication-TileColor", content="#00aba9")
+		meta(name="msapplication-TileImage", content="http://greenzorro.github.io/colacdn/blog_img_assets/favicons/mstile-144x144.png")
+		meta(name="msapplication-config", content="http://greenzorro.github.io/colacdn/blog_img_assets/favicons/browserconfig.xml")
 		block title
 			title= request.args.s or post.title or tags.join('+') or category.title or site.title
 		load("http://greenzorro.github.io/colacdn/assets/css/reset.css")
+		link(rel="stylesheet", type='text/css', href="https://fonts.cai-cai.me/css?family=Source+Sans+Pro|Forum")
 		load('/template/css/fonts.css /template/css/style.scss')
 
 	body
