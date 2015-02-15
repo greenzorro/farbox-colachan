@@ -14,6 +14,6 @@ block content
 	if request.path.strip('/') == 'category'
 		+redirect('/categories')
 	else
-		.main_wrap
+		.main_wrap(name="content")
 			include include/posts_list
 

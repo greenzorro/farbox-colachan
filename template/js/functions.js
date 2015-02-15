@@ -5,7 +5,6 @@ $(function () {
 	mainMenu();  //主菜单
 	searchForm();  //搜索框
 	qrCode();  //二维码
-	scrollPosition();  //回顶部等页面滚动效果
 	listType();  //列表页文章类型判断，文字or图片
 	imgContain();  //详情页段落是否包含图片
 	movies();  //电影收藏
@@ -14,6 +13,7 @@ $(function () {
 
 	// 插件效果
 	fancybox();  //fancybox弹窗相册
+	smoothSlide();  //锚链接平滑移动
 
 })
 
@@ -67,40 +67,16 @@ function searchForm () {
 		};
 	})
 	searchForm.focus(function () {  //输入框获得焦点
-		inputActive();  //展开搜索框
+		$(".header").addClass("search_on");  //展开搜索框
 		$(this).val($(this).val());  //光标移到末尾
-		this.onkeyup = function () {
-			if (event.keyCode == 13) {  //按下回车键
-				searchKeyword($(this).val(), $(this));  //搜索跳转
-			}
-		}
 	}).blur(function () {  //搜索框失去焦点
-    	inputDisactive();  //收起搜索框
+		$(".header").removeClass("search_on");  //收起搜索框
     })
-	$(window).resize(function () {  //旋转屏幕，输入框自适应宽度
-		if (getWinSize() < 3) {  //如果是手机
-			if ($(".header .search").hasClass("search_on")) {  //搜索框处于展开状态
-				searchForm.width($(window).width() - 56 - 5);  //调节输入框宽度
-			};
+	searchForm.bind("keyup", function () {  //输入框的键盘事件
+		if (event.keyCode == 13) {  //按下回车键
+			searchKeyword($(this).val(), $(this));  //搜索跳转
 		}
-		else {
-			searchForm.removeAttr("style");  //移除搜索框宽度信息
-		}
-	});
-    // 展开搜索框
-    function inputActive () {
-		$(".header .search").addClass("search_on");  //展开搜索框
-		if (getWinSize() < 3) {  //如果是手机
-			$(".header .title").addClass("title_hide");  //隐藏标题
-			searchForm.width($(window).width() - 56 - 5);  //调节输入框宽度
-		}
-    }
-    // 收起搜索框
-    function inputDisactive () {
-		searchForm.removeAttr("style");  //移除搜索框宽度信息
-		$(".header .search").removeClass("search_on");  //收起搜索框
-		$(".header .title").removeClass("title_hide");  //显示标题
-    }
+	})
     // 搜索跳转
 	function searchKeyword (keyword, obj) {
 		if (obj.val().length > 0) {  //输入框不为空
@@ -122,22 +98,6 @@ function qrCode () {
 				$(".header .qr").removeClass("qr_show");  //隐藏二维码
 			};
 		};
-	})
-}
-
-
-// 回顶部等页面滚动效果
-function scrollPosition () {
-	$(".gotop").on("click", function () {
-        $("html,body").animate({
-            scrollTop: 0
-        },300);
-	})
-	$(".header .down .icon-arrow2_down").on("click", function () {
-		var winHeight = $(window).height();
-        $("html,body").animate({
-            scrollTop: winHeight
-        },300);
 	})
 }
 
@@ -374,4 +334,30 @@ function fancybox () {
 			nextClick : true
 		});
 	};
+}
+
+
+//	锚链接平滑移动
+function smoothSlide () {
+	$("a[href*='#']").click(function() {
+		if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+			if (this.hash.slice(1).length){
+				var $target = $("[name=" + this.hash.slice(1) + "]");
+				if($target.length){
+					var targetOffset = $target.offset().top;
+					$("html,body").animate({
+						scrollTop: targetOffset
+					},
+					800);
+				}
+			}
+			else{
+				$("html,body").animate({
+					scrollTop: 0
+				},
+				800);
+			}
+			return false;  //防止页面跳动
+		}
+	});	
 }
