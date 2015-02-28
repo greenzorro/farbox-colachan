@@ -28,7 +28,6 @@ html
 		block title
 			title= request.args.s or post.title or tags.join('+') or category.title or site.title
 		load("http://greenzorro.github.io/colacdn/assets/css/reset.css")
-		link(rel="stylesheet", type='text/css', href="https://fonts.cai-cai.me/css?family=Source+Sans+Pro|Forum")
 		load('/template/css/fonts.css /template/css/style.scss')
 
 	body
@@ -38,11 +37,18 @@ html
 				block content
 			block footer
 
-		load("http://greenzorro.github.io/colacdn/assets/js/jquery-latest.js")
+		load("http://greenzorro.github.io/colacdn/assets/js/jquery2-latest.js")
 		if request.url_without_host == "/works"
 			load('/template/frameworks/fancybox/jquery.fancybox.js /template/frameworks/fancybox/jquery.fancybox.css /template/frameworks/fancybox/jquery.mousewheel-3.0.6.pack.js')
 		load("/template/js/functions.js")
 
 		.statistic
 			script.
-				var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_2994887'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/stat.php%3Fid%3D2994887' type='text/javascript'%3E%3C/script%3E"));
+				var _hmt = _hmt || [];
+				(function() {
+					var hm = document.createElement("script");
+					hm.src = "//hm.baidu.com/hm.js?f66976b2436b48283da56955e296d2e7";
+					var s = document.getElementsByTagName("script")[0]; 
+					s.parentNode.insertBefore(hm, s);
+				})();
+

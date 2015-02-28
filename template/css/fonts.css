@@ -1,4 +1,23 @@
 @font-face {
+  font-family: 'Forum';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Forum'),
+  	url('../fonts/Forum-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Source Sans Pro'),
+  	url('../fonts/SourceSansPro-Regular.ttf');
+}
+
+
+/*font-icon*/
+
+@font-face {
 	font-family: 'cola_icon';
 	src:url('../fonts/cola_icon.eot?-54fria');
 	src:url('../fonts/cola_icon.eot?#iefix-54fria') format('embedded-opentype'),
