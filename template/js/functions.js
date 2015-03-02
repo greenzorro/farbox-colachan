@@ -30,7 +30,7 @@ var pageFunc = {
 
 	// 判断浏览器是否支持html5
 	html5Support: function () {
-		var explorer = explorerType(false);
+		var explorer = basic.explorerType(false);
 		if (explorer["type"] == "ie" && explorer["version"] < 9) {
 			$("body").addClass("non_html5_bg");
 			$("body").html("<div class='non_html5'><h1>请使用支持html5的浏览器打开</h1><p>比如：<a href='http://down.tech.sina.com.cn/content/40975.html' target='_blank'>谷歌浏览器</a>、<a href='https://www.mozilla.org/zh-CN/firefox/new/' target='_blank'>火狐浏览器</a>，或者当前浏览器的极速模式</p></div>");
@@ -45,7 +45,7 @@ var pageFunc = {
 		$(".header .icon-icon_menu").on("click", toggleMenu);  //点击菜单按钮
 		// 切换菜单状态
 		function toggleMenu () {
-			if (getWinSize() < 3) {
+			if (basic.getWinSize() < 3) {
 				if (flag) {  //菜单处于显示状态
 					menu.removeClass("menu_wrapper_show");  //收起菜单
 					flag = 0;
@@ -64,7 +64,7 @@ var pageFunc = {
 		var searchForm = $(".header .search input");
 		$(".header .search .icon-icon_search").on("click", function () {  //PC端点击搜索按钮
 			thisInput = $(this).parent().find("input");
-			if (getWinSize() > 4 && searchForm.val() != "") {
+			if (basic.getWinSize() > 4 && searchForm.val() != "") {
 				searchKeyword(thisInput.val(), thisInput);  //搜索跳转
 			};
 		})
@@ -91,7 +91,7 @@ var pageFunc = {
 	// 二维码
 	qrCode: function () {
 		$(document).on("click", function (e) {  //点击页面任意位置
-			if (getWinSize() > 4) {  //PC
+			if (basic.getWinSize() > 4) {  //PC
 				var target  = $(e.target);
 				if ($(target).hasClass("icon-icon_qr")) {  //点击二维码图标
 					$(".header .qr").addClass("qr_show");  //显示二维码
@@ -111,7 +111,7 @@ var pageFunc = {
 				if ($(this).find("img").length > 0) {  //如果有图片，设为图片模式
 					$(this).addClass("img");
 					$(this).removeClass("text");
-					if (getWinSize() < 3) {  //如果是手机，将第一张图片作为背景图
+					if (basic.getWinSize() < 3) {  //如果是手机，将第一张图片作为背景图
 						$(this).css("background-image", "url(" + $(this).find("img").attr("src") + ")");
 					}
 					else {  //否则清除背景图
@@ -124,7 +124,7 @@ var pageFunc = {
 				}
 			})
 			$(window).resize(function () {  //改变窗口大小
-				if (getWinSize() < 3) {  //如果是手机，将第一张图片作为背景图
+				if (basic.getWinSize() < 3) {  //如果是手机，将第一张图片作为背景图
 					$(".list .img").each(function () {
 						$(this).css("background-image", "url(" + $(this).find("img").attr("src") + ")");
 					})
@@ -151,7 +151,7 @@ var pageFunc = {
 
 	// 电影收藏
 	movies: function () {
-		if ($("#movie").length > 0 && getWinSize() > 4) {  //在手机上直接展现作品图片，而不是幻灯播放
+		if ($("#movie").length > 0 && basic.getWinSize() > 4) {  //在手机上直接展现作品图片，而不是幻灯播放
 			$("#movie li h3").hover(function () {
 				$(this).parent().addClass("hover");
 			}, function () {
@@ -163,7 +163,7 @@ var pageFunc = {
 
 	// 设计作品
 	works: function () {
-		if ($("#works").length > 0 && getWinSize() < 3) {  //在手机上直接展现作品图片，而不是幻灯播放
+		if ($("#works").length > 0 && basic.getWinSize() < 3) {  //在手机上直接展现作品图片，而不是幻灯播放
 			$("#works .pic a").each(function () {
 				if ($(this).hasClass("title")) {
 					$(this).remove();
@@ -320,54 +320,59 @@ var plugin = {
 //                              基础功能                               //
 //*********************************************************************//
 
-
-// 获取屏幕宽度，判断设备类型
-function getWinSize () {
-	var phoneLandscape = 568, padPortrait = 768, padLandscape = 1024, pc = 1200;  //响应式断点
-	var winWidth = $(window).width();
-	if (winWidth < phoneLandscape) {  //手机竖屏
-		return 1;
-	}
-	else if(winWidth >= phoneLandscape && winWidth < padPortrait) {  //手机横屏
-		return 2;
-	}
-	else if(winWidth >= padPortrait && winWidth < padLandscape) {  //平板
-		return 3;
-	}
-	else if(winWidth >= padLandscape && winWidth < pc) {  //平板
-		return 4;
-	}
-	else {  //PC
-		return 5;
-	}
-}
+var basic = {
 
 
-// 判断浏览器类型与版本
-function explorerType (detailed) { //参数控制是否显示浏览器完整版本号
-    var Sys = {};
-    var ua = navigator.userAgent.toLowerCase();
-    var s;
-    (s = ua.match(/rv:([\d.]+)\) like gecko/)) ? Sys.ie = s[1] :
-    (s = ua.match(/msie ([\d.]+)/)) ? Sys.ie = s[1] :
-    (s = ua.match(/firefox\/([\d.]+)/)) ? Sys.firefox = s[1] :
-    (s = ua.match(/chrome\/([\d.]+)/)) ? Sys.chrome = s[1] :
-    (s = ua.match(/opera.([\d.]+)/)) ? Sys.opera = s[1] :
-    (s = ua.match(/version\/([\d.]+).*safari/)) ? Sys.safari = s[1] : 0;
-    if (detailed) {
-		if (Sys.ie) return {"type":"ie","version":Sys.ie};
-		else if (Sys.firefox) return {"type":"firefox","version":Sys.firefox};
-		else if (Sys.chrome) return {"type":"chrome","version":Sys.chrome};
-		else if (Sys.opera) return {"type":"opera","version":Sys.opera};
-		else if (Sys.safari) return {"type":"safari","version":Sys.safari};
-		else return {"type":"null","version":"0"};
-    }
-    else {
-		if (Sys.ie) return {"type":"ie","version":parseInt(Sys.ie.split(".")[0])};
-		else if (Sys.firefox) return {"type":"firefox","version":parseInt(Sys.firefox.split(".")[0])};
-		else if (Sys.chrome) return {"type":"chrome","version":parseInt(Sys.chrome.split(".")[0])};
-		else if (Sys.opera) return {"type":"opera","version":parseInt(Sys.opera.split(".")[0])};
-		else if (Sys.safari) return {"type":"safari","version":parseInt(Sys.safari.split(".")[0])};
-		else return {"type":"null","version":"0"};
-    }
+	// 获取屏幕宽度，判断设备类型
+	getWinSize: function () {
+		var phoneLandscape = 568, padPortrait = 768, padLandscape = 1024, pc = 1200;  //响应式断点
+		var winWidth = $(window).width();
+		if (winWidth < phoneLandscape) {  //手机竖屏
+			return 1;
+		}
+		else if(winWidth >= phoneLandscape && winWidth < padPortrait) {  //手机横屏
+			return 2;
+		}
+		else if(winWidth >= padPortrait && winWidth < padLandscape) {  //平板
+			return 3;
+		}
+		else if(winWidth >= padLandscape && winWidth < pc) {  //平板
+			return 4;
+		}
+		else {  //PC
+			return 5;
+		}
+	},
+
+
+	// 判断浏览器类型与版本
+	explorerType: function (detailed) { //参数控制是否显示浏览器完整版本号
+	    var Sys = {};
+	    var ua = navigator.userAgent.toLowerCase();
+	    var s;
+	    (s = ua.match(/rv:([\d.]+)\) like gecko/)) ? Sys.ie = s[1] :
+	    (s = ua.match(/msie ([\d.]+)/)) ? Sys.ie = s[1] :
+	    (s = ua.match(/firefox\/([\d.]+)/)) ? Sys.firefox = s[1] :
+	    (s = ua.match(/chrome\/([\d.]+)/)) ? Sys.chrome = s[1] :
+	    (s = ua.match(/opera.([\d.]+)/)) ? Sys.opera = s[1] :
+	    (s = ua.match(/version\/([\d.]+).*safari/)) ? Sys.safari = s[1] : 0;
+	    if (detailed) {
+			if (Sys.ie) return {"type":"ie","version":Sys.ie};
+			else if (Sys.firefox) return {"type":"firefox","version":Sys.firefox};
+			else if (Sys.chrome) return {"type":"chrome","version":Sys.chrome};
+			else if (Sys.opera) return {"type":"opera","version":Sys.opera};
+			else if (Sys.safari) return {"type":"safari","version":Sys.safari};
+			else return {"type":"null","version":"0"};
+	    }
+	    else {
+			if (Sys.ie) return {"type":"ie","version":parseInt(Sys.ie.split(".")[0])};
+			else if (Sys.firefox) return {"type":"firefox","version":parseInt(Sys.firefox.split(".")[0])};
+			else if (Sys.chrome) return {"type":"chrome","version":parseInt(Sys.chrome.split(".")[0])};
+			else if (Sys.opera) return {"type":"opera","version":parseInt(Sys.opera.split(".")[0])};
+			else if (Sys.safari) return {"type":"safari","version":parseInt(Sys.safari.split(".")[0])};
+			else return {"type":"null","version":"0"};
+	    }
+	}
+
+
 }
