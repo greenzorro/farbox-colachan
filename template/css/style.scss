@@ -627,7 +627,7 @@ input, textarea, button {
 				a {
 					display: inline-block;
 					background: url(http://greenzorro.github.io/colacdn/blog_img_assets/social.png) no-repeat;
-					background-size: 72px 24px;
+					background-size: 96px 24px;
 					width: 1.5em;
 					height: 1.5em;
 					overflow: hidden;
@@ -637,7 +637,7 @@ input, textarea, button {
 					@include transform-origin (50% 50%);
 					@include transform (scale(1,1));
 					&:hover {
-						@include transform (scale(1.3,1.3));
+						@include transform (scale(1.1,1.1));
 					}
 				}
 				.weibo {
@@ -646,8 +646,11 @@ input, textarea, button {
 				.douban {
 					background-position: -24px 0;
 				}
-				.huaban {
+				.pinterest {
 					background-position: -48px 0;
+				}
+				.github {
+					background-position: -72px 0;
 				}
 			}
 		}
@@ -775,36 +778,26 @@ input, textarea, button {
 	img {
 		max-width: 100%;
 	}
-	p {
-		line-height: 1.8;
-		margin: 0 0 1.5em;
-	}
 	h1, h2, h3, h4, h5, h6 {
 		font-weight: bold;
 	}
 	h1 {
 		margin: 0 0 0.5em;
-		font-size: 2.4em;
 	}
 	h2 {
 		margin: 0 0 0.6em;
-		font-size: 2em;
 	}
 	h3 {
 		margin: 0 0 0.8em;
-		font-size: 1.5em;
 	}
 	h4 {
 		margin: 0 0 1em;
-		font-size: 1.2em;
 	}
 	h5 {
 		margin: 0 0 1.2em;
-		font-size: 1em;
 	}
 	h6 {
 		margin: 0 0 1.5em;
-		font-size: 0.8em;
 	}
 	i, em {
 		font-style: italic;
@@ -874,7 +867,66 @@ input, textarea, button {
 		padding: 0;
 	}
 }
-
+// phone
+@media only screen and (max-width: $phone_landscape-max){
+	.post_body {
+		p {
+			line-height: 1.4;
+			margin: 0 0 1em;
+		}
+		h1, h2, h3, h4, h5, h6 {
+			letter-spacing: 0.02em;
+		}
+		h1 {
+			font-size: 1.8em;
+		}
+		h2 {
+			font-size: 1.5em;
+		}
+		h3 {
+			font-size: 1.2em;
+		}
+		h4 {
+			font-size: 1.1em;
+		}
+		h5 {
+			font-size: 1em;
+		}
+		h6 {
+			font-size: 0.8em;
+		}
+	}
+}
+// pad and pc
+@media only screen and (min-width: $pad_portrait-min){
+	.post_body {
+		p {
+			line-height: 1.6;
+			margin: 0 0 1.4em;
+		}
+		h1, h2, h3, h4, h5, h6 {
+			letter-spacing: -0.02em;
+		}
+		h1 {
+			font-size: 2.2em;
+		}
+		h2 {
+			font-size: 1.8em;
+		}
+		h3 {
+			font-size: 1.5em;
+		}
+		h4 {
+			font-size: 1.2em;
+		}
+		h5 {
+			font-size: 1em;
+		}
+		h6 {
+			font-size: 0.8em;
+		}
+	}
+}
 
 //***************************  pagination  ****************************//
 
