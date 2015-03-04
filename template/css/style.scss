@@ -779,25 +779,9 @@ input, textarea, button {
 		max-width: 100%;
 	}
 	h1, h2, h3, h4, h5, h6 {
+		line-height: 1.2;
+		padding: 0.2em 0 0.8em;
 		font-weight: bold;
-	}
-	h1 {
-		margin: 0 0 0.5em;
-	}
-	h2 {
-		margin: 0 0 0.6em;
-	}
-	h3 {
-		margin: 0 0 0.8em;
-	}
-	h4 {
-		margin: 0 0 1em;
-	}
-	h5 {
-		margin: 0 0 1.2em;
-	}
-	h6 {
-		margin: 0 0 1.5em;
 	}
 	i, em {
 		font-style: italic;
@@ -870,8 +854,8 @@ input, textarea, button {
 // phone
 @media only screen and (max-width: $phone_landscape-max){
 	.post_body {
+		line-height: 1.4;
 		p {
-			line-height: 1.4;
 			margin: 0 0 1em;
 		}
 		h1, h2, h3, h4, h5, h6 {
@@ -900,8 +884,8 @@ input, textarea, button {
 // pad and pc
 @media only screen and (min-width: $pad_portrait-min){
 	.post_body {
+		line-height: 1.6;
 		p {
-			line-height: 1.6;
 			margin: 0 0 1.4em;
 		}
 		h1, h2, h3, h4, h5, h6 {
