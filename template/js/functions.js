@@ -286,8 +286,9 @@ var plugin = {
 
 	//	锚链接平滑移动
 	smoothSlide: function () {
-		$("a[href*='#']").click(function() {
+		$("a[href*='#']").click(function(e) {
 			if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+				e.preventDefault();  //防止页面跳动
 				if (this.hash.slice(1).length){
 					var $target = $("[name=" + this.hash.slice(1) + "]");
 					if($target.length){
@@ -304,7 +305,6 @@ var plugin = {
 					},
 					800);
 				}
-				return false;  //防止页面跳动
 			}
 		});	
 	}

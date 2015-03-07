@@ -2058,7 +2058,7 @@ input, textarea, button {
 @media only screen and (min-width: $pc-min){
 	#about {
 		.intro {
-			padding: 8em 0;
+			padding: 12em 0;
 			opacity: 0;
 			.avatar {
 				width: 10em;
@@ -2138,10 +2138,9 @@ input, textarea, button {
 			a {
 				display: block;
 				line-height: 0;
-				border: 2px solid $dark4;
-				border-radius: 0.2em;
 				img {
 					width: 100%;
+					border-radius: 0.2em;
 				}
 			}
 			h2 {

@@ -1,6 +1,6 @@
 .detail
 	article.post
-		.content
+		section.content
 			h1.title= post.title
 			.post_body= post.content
 			.info.clearfix
@@ -30,7 +30,7 @@
 				script.
 					window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
 
-		.pager.clearfix
+		section.pager.clearfix
 			if pre_one
 				a.paging.pre(href='{{pre_one.url}}')
 					.arrow.icon-arrow2_left
