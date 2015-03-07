@@ -598,6 +598,8 @@ input, textarea, button {
 							background-size: cover;
 						}
 						p {
+							line-height: 1.4;
+							padding: 0 0 0.3em;
 							color: $dark1;
 							font-size: 0.9em;
 						}
@@ -622,7 +624,7 @@ input, textarea, button {
 				display: inline-block;
 				height: 1.5em;
 				padding: 0.3em 0.5em;
-				border: 1px solid $light3;
+				border: 1px solid $light2;
 				border-radius: 0.2em;
 				a {
 					display: inline-block;
@@ -685,9 +687,9 @@ input, textarea, button {
 			left: 0;
 			bottom: 5%;
 			.icon-arrow2_down {
-				color: $light3;
+				color: $light2;
 				&:hover {
-					color: $light2;
+					color: $light1;
 				}
 			}
 		}
