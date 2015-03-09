@@ -41,32 +41,60 @@ $pc-min: 75em;  //1200px
 
 // functions
 @mixin box-sizing ($value) {
-	box-sizing: $value;
 	-webkit-box-sizing: $value;
+	box-sizing: $value;
 }
 @mixin transform ($value) {
-	transform: $value;
 	-webkit-transform: $value;
+	transform: $value;
 }
 @mixin transform-origin ($value) {
-	transform-origin: $value;
 	-webkit-transform-origin: $value;
+	transform-origin: $value;
 }
 @mixin transition ($value) {
-	transition: $value;
 	-webkit-transition: $value;
+	transition: $value;
 }
 @mixin transition-transform ($value1,$value2) {
-	transition: transform $value1 $value2;
 	-webkit-transition: -webkit-transform $value1 $value2;
+	transition: transform $value1 $value2;
 }
 @mixin prefix-transition ($value) {
-	transition: $value;
 	-webkit-transition: -webkit-$value;
+	transition: $value;
 }
 @mixin animation ($value) {
-	animation: $value;
 	-webkit-animation: $value;
+	animation: $value;
+}
+@mixin display-flex () {
+	display: -webkit-flex;
+	display: flex;
+}
+@mixin flex-flow ($value) {
+	-webkit-flex-flow: $value;
+	flex-flow: $value;
+}
+@mixin order ($value) {
+	-webkit-order: $value;
+	order: $value;
+}
+@mixin flex ($value) {
+	-webkit-flex: $value;
+	flex: $value;
+}
+@mixin justify-content ($value) {
+	-webkit-justify-content: $value;
+	justify-content: $value;
+}
+@mixin align-items ($value) {
+	-webkit-align-items: $value;
+	align-items: $value;
+}
+@mixin align-content ($value) {
+	-webkit-align-content: $value;
+	align-content: $value;
 }
 @mixin aColor ($value) {
 	color: $value;
@@ -269,8 +297,8 @@ input, textarea, button {
 			left: 0;
 			top: 0;
 			z-index: 2;
-			transition: transform 0.5s $easing1, opacity 0.5s $easing1;
 			-webkit-transition: -webkit-transform 0.5s $easing1, opacity 0.5s $easing1;
+			transition: transform 0.5s $easing1, opacity 0.5s $easing1;
 		}
 		.menu_wrapper {
 			width: 100%;
@@ -284,15 +312,15 @@ input, textarea, button {
 			@include transform-origin (28px 0%);
 			@include transform (scale(0));
 			.categories {
-				padding: 0.8em 0;
+				@include display-flex ();
+				@include flex-flow (row wrap);
+				padding: 0.8em 0 1.2em;
 				border-bottom: 1px solid $dark4;
 				li {
-					float: left;
-					height: 5.5em;
 					a {
 						display: block;
-						width: 100%;
 						height: 100%;
+						padding: 0.2em 1.2em;
 						color: $dark1;
 						span {
 							display: block;
@@ -305,9 +333,13 @@ input, textarea, button {
 				}
 			}
 			.nav {
+				@include display-flex ();
+				@include flex-flow (row wrap);
+				@include justify-content (center);
 				clear: both;
 				li {
 					a {
+						display: block;
 						color: $dark2;
 						font-size: 0.85em;
 					}
@@ -345,9 +377,9 @@ input, textarea, button {
 	.header .menu_wrapper .categories li {
 		width: 33.3%;
 	}
-	.header .menu_wrapper .nav li {
+	.header .menu_wrapper .nav {
+		@include flex-flow (column);
 		a {
-			display: block;
 			height: 3.5em * 0.85;
 			line-height: 3.5em * 0.85;
 			border-bottom: 1px solid $dark4;
@@ -359,10 +391,8 @@ input, textarea, button {
 	.header .menu_wrapper .categories li {
 		width: 20%;
 	}
-	.header .menu_wrapper .nav li {
-		display: inline;
+	.header .menu_wrapper .nav {
 		a {
-			display: inline-block;
 			height: 4em;
 			line-height: 4em;
 			padding: 0 1.5em;
@@ -917,6 +947,7 @@ input, textarea, button {
 //***************************  pagination  ****************************//
 
 .pager {
+	width: 100%;
 	a {
 		display: block;
 		height: 2em;
@@ -1058,7 +1089,10 @@ input, textarea, button {
 // phone
 @media only screen and (max-width: $phone_landscape-max){
 	.list {
+		@include display-flex ();
+		@include flex-flow (row wrap);
 		.post {
+			@include flex (1 17.75em);
 			position: relative;
 			.content {
 				height: 7.475em;
@@ -1135,15 +1169,6 @@ input, textarea, button {
 		}
 		.img:nth-child(3n+3) .content {
 			background: rgba(175,163,145,0.85);
-		}
-	}
-}
-// phone_landscape
-@media only screen and (min-width: $phone_landscape-min) and (max-width: $phone_landscape-max){
-	.list {
-		.post {
-			float: left;
-			width: 50%;
 		}
 	}
 }
@@ -1346,7 +1371,10 @@ input, textarea, button {
 //***************************  categories  ****************************//
 
 #categories .cat_list {
+	@include display-flex ();
+	@include flex-flow (row wrap);
 	li {
+		@include flex (1 20em);
 		.pic {
 			display: block;
 			span {
@@ -1421,8 +1449,6 @@ input, textarea, button {
 		.cat_list {
 			padding: 0 3em 3.75em;
 			li {
-				float: left;
-				width: 50%;
 				padding: 3.75em 0 0;
 				.pic {
 					display: block;
@@ -1453,8 +1479,6 @@ input, textarea, button {
 		.cat_list {
 			padding: 0 0 2.8em;
 			li {
-				float: left;
-				width: 33.3%;
 				padding: 2.8em 0 0;
 				.pic {
 					display: block;
@@ -2134,6 +2158,8 @@ input, textarea, button {
 		margin: auto;
 	}
 	ul {
+		@include display-flex ();
+		@include flex-flow (row wrap);
 		li {
 			a {
 				display: block;
@@ -2167,15 +2193,9 @@ input, textarea, button {
 		}
 		ul {
 			padding: 0 1em;
-		}
-	}
-}
-// phone_portrait
-@media only screen and (max-width: $phone_portrait-max){
-	#tools {
-		ul {
 			li {
-				padding: 0 0 3em;
+				@include flex (1 12em);
+				padding: 0 3% 1em;
 			}
 		}
 	}
@@ -2185,11 +2205,8 @@ input, textarea, button {
 	#tools {
 		ul {
 			li {
-				float: left;
-				width: 44%;
-				padding: 0 3% 1em;
 				p {
-					height: 10em;
+					height: 9em;
 				}
 			}
 		}
@@ -2206,18 +2223,10 @@ input, textarea, button {
 			padding: 0 0 3em;
 			font-size: 1.2em;
 		}
-	}
-}
-// pad
-@media only screen and (min-width: $pad_portrait-min) and (max-width: $pad_landscape-max){
-	#tools {
 		ul {
-			width: 85%;
-			margin: auto;
 			li {
-				float: left;
-				width: 44%;
-				padding: 0 3% 3em;
+				@include flex (1 16em);
+				padding: 0 2% 2em;
 				p {
 					height: 7em;
 				}
@@ -2225,19 +2234,11 @@ input, textarea, button {
 		}
 	}
 }
-// pc
-@media only screen and (min-width: $pc-min){
+// pad
+@media only screen and (min-width: $pad_portrait-min) and (max-width: $pad_landscape-max){
 	#tools {
 		ul {
-			li {
-				float: left;
-				width: 29%;
-				padding: 0 2% 1em;
-				text-align: left;
-				p {
-					height: 7em;
-				}
-			}
+			padding: 0 12%;
 		}
 	}
 }
@@ -2254,29 +2255,29 @@ input, textarea, button {
 a {
 	@include transition (color 0.5s $easing1, background-color 0.5s $easing1);
 }
-@keyframes fadein {
-	0% { opacity: 0; }
-	100% { opacity: 1; }
-}
 @-webkit-keyframes fadein {
 	0% { opacity: 0; }
 	100% { opacity: 1; }
 }
-@keyframes zoomin {
-	0% { transform: scale(0); }
-	100% { transform: scale(1); }
+@keyframes fadein {
+	0% { opacity: 0; }
+	100% { opacity: 1; }
 }
 @-webkit-keyframes zoomin {
 	0% { -webkit-transform: scale(0); }
 	100% { -webkit-transform: scale(1); }
 }
-@keyframes fadein_up {
-	0% { opacity: 0; transform: translate(0, 2em); }
-	100% { opacity: 1; transform: translate(0, 0); }
+@keyframes zoomin {
+	0% { transform: scale(0); }
+	100% { transform: scale(1); }
 }
 @-webkit-keyframes fadein_up {
 	0% { opacity: 0; -webkit-transform: translate(0, 2em); }
 	100% { opacity: 1; -webkit-transform: translate(0, 0); }
+}
+@keyframes fadein_up {
+	0% { opacity: 0; transform: translate(0, 2em); }
+	100% { opacity: 1; transform: translate(0, 0); }
 }
 
 
@@ -2390,10 +2391,10 @@ a {
 .circle_progress .pie_right { clip: rect(auto,auto,auto,100px); }
 .circle_progress .pie_left,
 .circle_progress .pie_right { background: $primary3; border-radius: 50%;
-	transition: transform 0.5s linear;
 	-webkit-transition: -webkit-transform 0.5s linear;
-	transform-origin: 50% 50%;
+	transition: transform 0.5s linear;
 	-webkit-transform-origin: 50% 50%;
+	transform-origin: 50% 50%;
 }
 .circle_progress .center { width: 180px; height: 180px; background: $bg2; border-radius: 50%; position: absolute; left: 10px; top: 10px; }
 
