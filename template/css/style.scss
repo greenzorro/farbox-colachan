@@ -1805,16 +1805,12 @@ input, textarea, button {
 				font-size: 1.8em;
 			}
 			.area {
-				margin:1.8em 0 0;
 				span {
 					display: inline-block;
-					width: 7em;
 					padding: 0.5em 0;
 					margin: 0 0.8em;
-					background: $accent3;
-					border-radius: 0.3em;
 					font-size: 0.9em;
-					color: $light1;
+					color: $dark2;
 				}
 			}
 		}
