@@ -9,7 +9,7 @@
 				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 			})();
 	elif site.configs.duoshuo
-		.ds-thread
+		.ds-thread(data-thread-key="{{post.url}}", data-title="{{post.title}}", data-url="http://colachan.com{{post.url}}")
 		script
 			var duoshuoQuery = {short_name:"{{ site.configs.duoshuo }}"};
 			(function() { var ds = document.createElement('script'); ds.type = 'text/javascript';ds.async = true;

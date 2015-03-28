@@ -55,7 +55,7 @@ pageFunc =
             searchKeyword $(this).val(), $(this) if event.keyCode is 13  #按下回车键，搜索跳转
         # 搜索跳转
         searchKeyword = (keyword, obj) ->
-            window.location = "http://" + window.location.host + "/?s=" + keyword if obj.val().length > 0  #输入框不为空
+            window.location = "http://" + window.location.host + "/?s=" + keyword if obj.val().length  #输入框不为空
 
     # 二维码
     qrCode: ->
@@ -77,7 +77,7 @@ pageFunc =
                     $(imgs).removeAttr "style"
             for item in posts
                 # 如果有图片，设为图片模式，否则设为文字模式
-                if $(item).find("img").length > 0 then $(item).attr "class", "post img" else $(item).attr "class", "post text"
+                $(item).attr "class", (if $(item).find("img").length then "post img" else "post text")
             setBg()
             window.onresize = -> setBg()  #改变窗口大小
 
@@ -85,24 +85,20 @@ pageFunc =
     imgContain: ->
         if document.getElementsByClassName("detail")[0]?  #处于详情页
             para = document.getElementsByClassName("post_body")[0].getElementsByTagName "p"
-            $(item).addClass "img_inside" for item in para when $(item).find("img").length > 0
+            $(item).addClass "img_inside" for item in para when $(item).find("img").length
 
     # 电影收藏
     movies: ->
-        if document.getElementById("movie")? and basic.getWinSize() > 4  #在手机上直接展现作品图片，而不是幻灯播放
+        if document.getElementById("movie")? and basic.getWinSize() > 4  #处于电影收藏页面，PC
             $("#movie li h3").hover ->
                 $(this).parent().toggleClass "hover"
 
     # 设计作品
     works: ->
         if document.getElementById("works")? and basic.getWinSize() < 3  #在手机上直接展现作品图片，而不是幻灯播放
+            $(".pic a.title").remove()
             workItem = document.getElementsByClassName("pic")[0].getElementsByTagName "a"
-            for item in workItem
-                if $(item).hasClass "title"
-                    $(item).remove()
-                else
-                    imgSrc = $(item).attr "href"
-                    $(item).replaceWith "<img src='#{imgSrc}'>"
+            $(item).replaceWith "<img src='#{$(item).attr "href"}'>" for item in workItem
 
     # 关于页面的环形进度条
     aboutProgress: ->
@@ -198,8 +194,9 @@ plugin =
         $("a[href*='#']").click (e) ->
             if location.pathname.replace(/^\//, '') is this.pathname.replace(/^\//, '') and location.hostname is this.hostname
                 e.preventDefault()  #防止页面跳动
-                if this.hash.slice(1).length
-                    $target = $("[name=" + this.hash.slice(1) + "]")
+                hash = this.hash.slice(1)
+                if hash.length
+                    $target = $("[name=#{hash}]")
                     if $target.length
                         targetOffset = $target.offset().top
                         $("html,body").animate { scrollTop: targetOffset }, 800

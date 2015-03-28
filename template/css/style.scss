@@ -24,7 +24,7 @@ $accent2: #e8e4d9;
 $accent3: #75484e;
 $shadow1: 0 1px 4px rgba(0,0,0,0.35);
 $shadow2: 0 4px 4px rgba(0,0,0,0.35);
-$bg_img: url(http://greenzorro.github.io/colacdn/blog_img_assets/bg.jpg);
+$bg_img: url(../images/bg.jpg);
 $easing1: cubic-bezier(0.15, 0.95, 0.41, 0.95);
 
 
@@ -579,7 +579,7 @@ input, textarea, button {
 			display: none;
 			width: 100%;
 			padding: 3em 0 0;
-			background: url(http://greenzorro.github.io/colacdn/blog_img_assets/slogen.png) no-repeat center top;
+			background: url(../images/slogen.png) no-repeat center top;
 			background-size: 405px 53px;
 			text-align: center;
 			color: $light1;
@@ -624,7 +624,7 @@ input, textarea, button {
 						.img {
 							width: 12em;
 							height: 12em;
-							background: url(http://greenzorro.github.io/colacdn/blog_img_assets/qrcode.png) no-repeat center center;
+							background: url(../images/qrcode.png) no-repeat center center;
 							background-size: cover;
 						}
 						p {
@@ -658,7 +658,7 @@ input, textarea, button {
 				border-radius: 0.2em;
 				a {
 					display: inline-block;
-					background: url(http://greenzorro.github.io/colacdn/blog_img_assets/social.png) no-repeat;
+					background: url(../images/social.png) no-repeat;
 					background-size: 96px 24px;
 					width: 1.5em;
 					height: 1.5em;
@@ -741,7 +741,7 @@ input, textarea, button {
 			width: 40px;
 			height: 46px;
 			margin: 0 auto 1em;
-			background: url(http://greenzorro.github.io/colacdn/blog_img_assets/logo.png) no-repeat center center;
+			background: url(../images/logo.png) no-repeat center center;
 			background-size: 40px 46px;
 		}
 		p {
@@ -1388,31 +1388,31 @@ input, textarea, button {
 		}
 	}
 	.life a span {
-		background-image: url(http://greenzorro.github.io/colacdn/blog_categories/life.jpg);
+		background-image: url(http://7xib7m.com1.z0.glb.clouddn.com/categories/life.jpg);
 	}
 	.translate a span {
-		background-image: url(http://greenzorro.github.io/colacdn/blog_categories/translate.jpg);
+		background-image: url(http://7xib7m.com1.z0.glb.clouddn.com/categories/translate.jpg);
 	}
 	.geek a span {
-		background-image: url(http://greenzorro.github.io/colacdn/blog_categories/geek.jpg);
+		background-image: url(http://7xib7m.com1.z0.glb.clouddn.com/categories/geek.jpg);
 	}
 	.humor a span {
-		background-image: url(http://greenzorro.github.io/colacdn/blog_categories/humor.jpg);
+		background-image: url(http://7xib7m.com1.z0.glb.clouddn.com/categories/humor.jpg);
 	}
 	.food a span {
-		background-image: url(http://greenzorro.github.io/colacdn/blog_categories/food.jpg);
+		background-image: url(http://7xib7m.com1.z0.glb.clouddn.com/categories/food.jpg);
 	}
 	.photo a span {
-		background-image: url(http://greenzorro.github.io/colacdn/blog_categories/photo.jpg);
+		background-image: url(http://7xib7m.com1.z0.glb.clouddn.com/categories/photo.jpg);
 	}
 	.media a span {
-		background-image: url(http://greenzorro.github.io/colacdn/blog_categories/media.jpg);
+		background-image: url(http://7xib7m.com1.z0.glb.clouddn.com/categories/media.jpg);
 	}
 	.book a span {
-		background-image: url(http://greenzorro.github.io/colacdn/blog_categories/book.jpg);
+		background-image: url(http://7xib7m.com1.z0.glb.clouddn.com/categories/book.jpg);
 	}
 	.dream a span {
-		background-image: url(http://greenzorro.github.io/colacdn/blog_categories/dream.jpg);
+		background-image: url(http://7xib7m.com1.z0.glb.clouddn.com/categories/dream.jpg);
 	}
 }
 // phone
@@ -1849,12 +1849,12 @@ input, textarea, button {
 
 #about {
 	.intro {
-		background: url(http://greenzorro.github.io/colacdn/blog_img_assets/bg_about.jpg) no-repeat center center;
+		background: url(../images/bg_about.jpg) no-repeat center center;
 		background-size: cover;
 		@include animation (fadein 1.2s $easing1 both);
 		.avatar {
 			margin: 0 auto;
-			background: url(http://greenzorro.github.io/colacdn/blog_img_assets/avatar.png) no-repeat center center;
+			background: url(../images/avatar.png) no-repeat center center;
 			background-size: cover;
 			border-radius: 50%;
 		}
@@ -1934,6 +1934,9 @@ input, textarea, button {
 				height: 6em;
 			}
 		}
+		h2.title {
+			padding: 3em 0 1em;
+		}
 		.skills {
 			li {
 				margin: 0 0 1em;
@@ -1949,13 +1952,13 @@ input, textarea, button {
 						clip: rect(auto,auto,auto,40px);
 					}
 					.text {
-						width: 74px;
-						height: 74px;
-						left: 3px;
-						top: 3px;
+						width: 76px;
+						height: 76px;
+						left: 2px;
+						top: 2px;
 						p {
-							line-height: 74px;
-							font-size: 1em;
+							line-height: 76px;
+							font-size: 0.9em;
 						}
 					}
 				}
@@ -2021,13 +2024,13 @@ input, textarea, button {
 						clip: rect(auto,auto,auto,58px);
 					}
 					.text {
-						width: 110px;
-						height: 110px;
-						left: 3px;
-						top: 3px;
+						width: 112px;
+						height: 112px;
+						left: 2px;
+						top: 2px;
 						p {
-							line-height: 110px;
-							font-size: 1.2em;
+							line-height: 112px;
+							font-size: 1.1em;
 						}
 					}
 				}
@@ -2105,13 +2108,13 @@ input, textarea, button {
 							clip: rect(auto,auto,auto,65px);
 						}
 						.text {
-							width: 122px;
-							height: 122px;
-							left: 4px;
-							top: 4px;
+							width: 126px;
+							height: 126px;
+							left: 2px;
+							top: 2px;
 							p {
-								line-height: 122px;
-								font-size: 1.5em;
+								line-height: 126px;
+								font-size: 1.3em;
 							}
 						}
 					}
@@ -2289,7 +2292,7 @@ a {
 		font-size: 5em;
 	}
 	.img {
-		background: url(http://greenzorro.github.io/colacdn/blog_img_assets/not_found.png) no-repeat center center;
+		background: url(../images/not_found.png) no-repeat center center;
 		background-size: contain;
 	}
 	a {
@@ -2401,7 +2404,7 @@ body {
 	#baidu_share, .bdselect_share_content, .sr-bdimgshare {
 		.bdshare-button-style1-32, .bdshare-button-style0-16 {
 			a {
-				background: url(http://greenzorro.github.io/colacdn/blog_img_assets/icon_share.png) no-repeat;
+				background: url(../images/icon_share.png) no-repeat;
 				&:hover {
 					opacity: 1;
 					position: relative;
@@ -2424,7 +2427,7 @@ body {
 		}
 		.bdshare-button-style1-32 {
 			a {
-				background: url(http://greenzorro.github.io/colacdn/blog_img_assets/icon_share.png) no-repeat;
+				background: url(../images/icon_share.png) no-repeat;
 				background-size: 128px 64px;
 			}
 			.bds_tsina {
@@ -2452,7 +2455,7 @@ body {
 		.bdshare-button-style0-16 {
 			a {
 				padding-left: 16px;
-				background: url(http://greenzorro.github.io/colacdn/blog_img_assets/icon_share.png) no-repeat;
+				background: url(../images/icon_share.png) no-repeat;
 				background-size: 64px 32px;
 			}
 			.bds_tsina {
