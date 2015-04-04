@@ -5,7 +5,7 @@ window.onload = ->
     pageFunc.mainMenu()  #主菜单
     pageFunc.searchForm()  #搜索框
     pageFunc.qrCode()  #二维码
-    pageFunc.listType()  #列表页文章类型判断，文字or图片
+    pageFunc.listType()  #列表页文章增加背景图
     pageFunc.imgContain()  #详情页段落是否包含图片
     pageFunc.movies()  #电影收藏
     pageFunc.works()  #设计作品
@@ -65,19 +65,15 @@ pageFunc =
                 qr = $(".header .qr")
                 if target.hasClass "icon-icon_qr" then qr.addClass "qr_show" else qr.removeClass "qr_show"  #点击图标显示/隐藏二维码
 
-    # 列表项类型判断，文字or图片
+    # 列表页文章增加背景图
     listType: ->
         if document.getElementsByClassName("list")[0]?  #处于列表页
-            posts = document.getElementsByClassName "post"
             setBg = ->
                 imgs = document.getElementsByClassName "img"
-                if basic.getWinSize() < 3  #如果是手机，将第一张图片作为背景图
-                    $(item).css "background-image", "url(#{$(item).find("img").attr("src")})" for item in imgs
+                if basic.getWinSize() < 3  #如果是手机，将封面图作为背景图
+                    $(item).css "background-image", "url(#{$(item).attr("bg")})" for item in imgs
                 else  #否则清除背景图
-                    $(imgs).removeAttr "style"
-            for item in posts
-                # 如果有图片，设为图片模式，否则设为文字模式
-                $(item).attr "class", (if $(item).find("img").length then "post img" else "post text")
+                    $(item).removeAttr "style" for item in imgs
             setBg()
             window.onresize = -> setBg()  #改变窗口大小
 
