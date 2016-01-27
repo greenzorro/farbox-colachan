@@ -809,7 +809,6 @@ input, textarea, button {
 .post_body {
 	img {
 		max-width: 100%;
-		max-height: 39em;
 	}
 	h1, h2, h3, h4, h5, h6 {
 		line-height: 1.2;
@@ -918,6 +917,9 @@ input, textarea, button {
 @media only screen and (min-width: $pad_portrait-min){
 	.post_body {
 		line-height: 1.6;
+		img {
+			max-height: 39em;
+		}
 		p {
 			margin: 0 0 1.4em;
 		}
