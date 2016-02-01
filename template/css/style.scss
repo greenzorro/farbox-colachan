@@ -1729,16 +1729,6 @@ input, textarea, button {
 				right: -10px;
 			}
 		}
-		ul:hover {
-			li {
-				h3 {
-					opacity: 0.7;
-				}
-				&:hover h3 {
-					opacity: 1;
-				}
-			}
-		}
 	}
 }
 
