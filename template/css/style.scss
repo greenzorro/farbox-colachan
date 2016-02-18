@@ -126,7 +126,7 @@ html, body{
 }
 body {
 	line-height: 1.6;
-	font-family: "Source Sans Pro", "stheiti", "microsoft yahei", sans-serif;
+	font-family: "Source Sans Pro", "PingFangSC-Regular", "microsoft yahei", sans-serif;
 	font-size: 1em;
 	color: $dark1;
 	background: $bg2;
@@ -135,7 +135,7 @@ a {
 	@include aColor ($primary1);
 }
 input, textarea, button {
-	font-family: "Source Sans Pro", "stheiti", "microsoft yahei", sans-serif;
+	font-family: "Source Sans Pro", "PingFangSC-Regular", "microsoft yahei", sans-serif;
 }
 ::selection {
 	background: $primary1;
