@@ -126,7 +126,7 @@ html, body{
 }
 body {
 	line-height: 1.6;
-	font-family: "Source Sans Pro", "stheiti", "microsoft yahei", sans-serif;
+	font-family: "Source Sans Pro", "PingFangSC-Regular", "microsoft yahei", sans-serif;
 	font-size: 1em;
 	color: $dark1;
 	background: $bg2;
@@ -135,7 +135,7 @@ a {
 	@include aColor ($primary1);
 }
 input, textarea, button {
-	font-family: "Source Sans Pro", "stheiti", "microsoft yahei", sans-serif;
+	font-family: "Source Sans Pro", "PingFangSC-Regular", "microsoft yahei", sans-serif;
 }
 ::selection {
 	background: $primary1;
@@ -667,9 +667,9 @@ input, textarea, button {
 					text-indent: -500em;
 					@include transition-transform (0.3s,$easing1);
 					@include transform-origin (50% 50%);
-					@include transform (scale(1,1));
+					@include transform (translate(0,0));
 					&:hover {
-						@include transform (scale(1.1,1.1));
+						@include transform (translate(0,-0.1em));
 					}
 				}
 				.weibo {
@@ -718,6 +718,7 @@ input, textarea, button {
 			bottom: 5%;
 			.icon-arrow2_down {
 				color: $light2;
+				@include animation (jump 0.5s $easing1 both infinite);
 				&:hover {
 					color: $light1;
 				}
@@ -2267,6 +2268,20 @@ a {
 @keyframes fadein_up {
 	0% { opacity: 0; transform: translate(0, 2em); }
 	100% { opacity: 1; transform: translate(0, 0); }
+}
+@-webkit-keyframes jump {
+	0% { -webkit-transform: translate(0, 0) }
+	25% { -webkit-transform: translate(0, 0.1em) }
+	50% { -webkit-transform: translate(0, 0) }
+	75% { -webkit-transform: translate(0, -0.1em) }
+	100% { -webkit-transform: translate(0, 0); }
+}
+@keyframes jump {
+	0% { transform: translate(0, 0) }
+	25% { transform: translate(0, 0.1em) }
+	50% { transform: translate(0, 0) }
+	75% { transform: translate(0, -0.1em) }
+	100% { transform: translate(0, 0); }
 }
 
 
