@@ -2,14 +2,14 @@
   font-family: 'Forum';
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/Forum-Regular.woff');
+  src: url('http://7xib7m.com1.z0.glb.clouddn.com/img/webassets/fonts/Forum-Regular.woff');
 }
 
 @font-face {
   font-family: 'Source Sans Pro';
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/SourceSansPro-Regular.woff');
+  src: url('http://7xib7m.com1.z0.glb.clouddn.com/img/webassets/fonts/SourceSansPro-Regular.woff');
 }
 
 
@@ -17,11 +17,11 @@
 
 @font-face {
 	font-family: 'cola_icon';
-	src:url('../fonts/cola_icon.eot?-54fria');
-	src:url('../fonts/cola_icon.eot?#iefix-54fria') format('embedded-opentype'),
-		url('../fonts/cola_icon.woff?-54fria') format('woff'),
-		url('../fonts/cola_icon.ttf?-54fria') format('truetype'),
-		url('../fonts/cola_icon.svg?-54fria#icomoon') format('svg');
+	src:url('http://7xib7m.com1.z0.glb.clouddn.com/img/webassets/fonts/cola_icon.eot?-54fria');
+	src:url('http://7xib7m.com1.z0.glb.clouddn.com/img/webassets/fonts/cola_icon.eot?#iefix-54fria') format('embedded-opentype'),
+		url('http://7xib7m.com1.z0.glb.clouddn.com/img/webassets/fonts/cola_icon.woff?-54fria') format('woff'),
+		url('http://7xib7m.com1.z0.glb.clouddn.com/img/webassets/fonts/cola_icon.ttf?-54fria') format('truetype'),
+		url('http://7xib7m.com1.z0.glb.clouddn.com/img/webassets/fonts/cola_icon.svg?-54fria#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
