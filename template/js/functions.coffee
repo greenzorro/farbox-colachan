@@ -87,7 +87,9 @@ pageFunc =
     movies: ->
         if document.getElementById("movie")? and basic.getWinSize() > 4  #处于电影收藏页面，PC
             $("#movie li h3").hover ->
-                $(this).parent().toggleClass "hover"
+                $(this).parent().addClass "hover"
+            $("#movie li h3").mouseout ->
+                $(this).parent().removeClass "hover"
 
     # 设计作品
     works: ->
