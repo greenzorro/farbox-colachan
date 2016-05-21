@@ -1252,9 +1252,6 @@ input, textarea, button {
 @media only screen and (max-width: $pad_landscape-max){
 	#movie {
 		li {
-			padding: 1.2em 1em;
-			border-bottom: 1px solid lighten($dark4, 30%);
-			&:last-of-type { border: none;}
 			.item {
 				padding: 1px 0;
 				h3 {
@@ -1274,6 +1271,8 @@ input, textarea, button {
 @media only screen and (max-width: $phone_portrait-max){
 	#movie {
 		li {
+			padding: 2.4em 1em 0;
+			&:last-of-type { padding: 2.4em 1em; }
 			.item {
 				h3 a img {
 					width: 62px;
@@ -1289,8 +1288,9 @@ input, textarea, button {
 @media only screen and (min-width: $pad_portrait-min) and (max-width: $pad_landscape-max){
 	#movie {
 		li {
-			padding: 3em 0;
 			margin: 0 5em;
+			padding: 4em 0 0;
+			&:last-of-type { padding: 4em 0; }
 			.item .text { font-size: 1.2em;}
 		}
 	}
@@ -1328,14 +1328,11 @@ input, textarea, button {
 						position: absolute;
 						top: 160px;}
 					.content {
-						width: 0;
-						height: 0;
-						overflow: hidden;
+						display: none;
+						width: 280px;
 						padding: 10px;
 						color: $dark1;
-						font-size: 0.8em;
-						@include transition-transform (0.3s, $easing1);
-						@include transform (scale(0, 1));}
+						font-size: 0.8em;}
 				}
 			}
 			.hover {
@@ -1347,11 +1344,7 @@ input, textarea, button {
 				.text {
 					a {
 						top: 170px;}
-					.content {
-						width: 280px;
-						height: auto;
-						overflow: visible;
-						@include transform (scale(1, 1));}
+					.content { display:block;}
 				}
 			}
 		}
