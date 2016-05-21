@@ -950,9 +950,9 @@ input, textarea, button {
 					@include transform (translate(0, 5.2em));}
 			}
 		}
-		.img:nth-child(3n+1) .content { background: rgba(darken($primary1,10%),0.85);}
-		.img:nth-child(3n+2) .content { background: rgba(darken($accent1,10%),0.85);}
-		.img:nth-child(3n+3) .content { background: rgba($accent3,0.85);}
+		.img:nth-child(3n+1) .content { background: rgba(mix($primary1,#000,0.7),0.85);}
+		.img:nth-child(3n+2) .content { background: rgba(mix($accent1,#000,0.6),0.85);}
+		.img:nth-child(3n+3) .content { background: rgba(mix($accent3,#000,0.9),0.85);}
 	}
 }
 // pad and pc
