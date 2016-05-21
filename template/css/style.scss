@@ -681,6 +681,7 @@ input, textarea, button {
 //*************************  context format  **************************//
 
 .post_body {
+	line-height: 1.6;
 	img { max-width: 100%;}
 	h1, h2, h3, h4, h5, h6 {
 		line-height: 1.2;
@@ -754,7 +755,7 @@ input, textarea, button {
 // phone
 @media only screen and (max-width: $phone_landscape-max){
 	.post_body {
-		line-height: 1.4;
+		font-size: 1.2em;
 		p, pre { margin: 0 0 1em;}
 		h1, h2, h3, h4, h5, h6 { letter-spacing: 0.02em;}
 		h1 { font-size: 1.8em;}
@@ -768,7 +769,6 @@ input, textarea, button {
 // pad and pc
 @media only screen and (min-width: $pad_portrait-min){
 	.post_body {
-		line-height: 1.6;
 		p, pre { margin: 0 0 1.4em;}
 		h1, h2, h3, h4, h5, h6 { letter-spacing: -0.02em;}
 		h1 { font-size: 2.2em;}
