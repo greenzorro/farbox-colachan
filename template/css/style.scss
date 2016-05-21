@@ -16,12 +16,12 @@ $bg1: #fff;
 $bg2: #f5f5f5;
 $bg3: #eee;
 $bg4: #333;
-$primary1: #58b798;
-$primary2: #afd9b6;
-$primary3: #d4e9dd;
-$accent1: #d0c3ae;
-$accent2: #e8e4d9;
-$accent3: #75484e;
+$primary1: #31b5bd;
+$primary2: #83cace;
+$primary3: #cdecee;
+$accent1: #df8a7f;
+$accent2: #f5c5bf;
+$accent3: #3c3d60;
 $shadow1: 0 1px 4px rgba(0,0,0,0.35);
 $shadow2: 0 4px 4px rgba(0,0,0,0.35);
 $bg_img: url(http://7xib7m.com1.z0.glb.clouddn.com/img/webassets/images/bg.jpg);
@@ -946,9 +946,9 @@ input, textarea, button {
 					@include transform (translate(0, 5.2em));}
 			}
 		}
-		.img:nth-child(3n+1) .content { background: rgba(83,123,110,0.85);}
-		.img:nth-child(3n+2) .content { background: rgba(96,69,73,0.85);}
-		.img:nth-child(3n+3) .content { background: rgba(175,163,145,0.85);}
+		.img:nth-child(3n+1) .content { background: rgba($primary1,0.7);}
+		.img:nth-child(3n+2) .content { background: rgba($accent1,0.7);}
+		.img:nth-child(3n+3) .content { background: rgba($accent3,0.7);}
 	}
 }
 // pad and pc
@@ -1537,7 +1537,7 @@ input, textarea, button {
 						span {
 							padding: 0 0.5em 0 0;
 							font-size: 1.5em;
-							color: #c16570;}
+							color: $accent1;}
 					}
 					.content {
 						p {
@@ -1910,7 +1910,7 @@ a { @include transition (color 0.5s $easing1, background-color 0.5s $easing1);}
 
 
 .non_html5_bg {
-	background: #75484e;
+	background: $accent3;
 	.non_html5 {
 		padding: 15em 0 0;
 		text-align: center;
