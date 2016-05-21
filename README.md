@@ -6,7 +6,7 @@
 
 但是我相信，既然你有兴趣采用farbox这套博客系统，一定是个热爱钻研之人，水平一定在我之上，将它改造成你的专属模版一定不在话下。
 
-注：项目中也包含设计稿（PSD），请随意取用，希望你喜欢。设计稿在design分支中。
+注：还可以[在此下载相关设计资源](https://www.dropbox.com/sh/skaznra0pnlxzlg/AABZ_4_6Aj9EkhLncDtFK6aPa?dl=0)，请随意取用，希望你喜欢。
 
 实际效果请参考[colachan.com](http://colachan.com/)
 
