@@ -213,6 +213,12 @@ input, textarea, button {
 			z-index: 4;
 			.icon-icon_menu { background: $bg4;}
 		}
+		.menu_active {
+			.icon-icon_menu {
+				background: $bg1;
+				color: $dark1;
+			}
+		}
 		.search {
 			display: inline-block;
 			position: absolute;
@@ -266,7 +272,7 @@ input, textarea, button {
 			left: 0;
 			top: 3.5em;
 			@include transition-transform (0.3s,$easing1);
-			@include transform-origin (28px 0%);
+			@include transform-origin (0% 0%);
 			@include transform (scale(0));
 			.categories {
 				@include display-flex ();
@@ -995,6 +1001,7 @@ input, textarea, button {
 					.icon-icon_book {
 						float: left;
 						display: inline;
+						line-height: 1.05;
 						margin: 0 0.15em 0 0;
 						font-size: 2.4em;}
 					span {

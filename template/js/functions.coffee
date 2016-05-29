@@ -27,7 +27,7 @@ pageFunc =
 
     # 判断浏览器是否支持html5
     html5Support: ->
-        explorer = basic.explorerType(false);
+        explorer = basic.explorerType(false)
         if explorer.type is "ie" and explorer.version < 9
             $("body").addClass "non_html5_bg"
             $("body").html "<div class='non_html5'><h1>请使用支持html5的浏览器打开</h1><p>比如：<a href='http://down.tech.sina.com.cn/content/40975.html' target='_blank'>谷歌浏览器</a>、<a href='https://www.mozilla.org/zh-CN/firefox/new/' target='_blank'>火狐浏览器</a>，或者当前浏览器的极速模式</p></div>"
@@ -35,9 +35,11 @@ pageFunc =
     # 主菜单
     mainMenu: ->
         menu = document.getElementsByClassName("header")[0].getElementsByClassName "menu_wrapper"
+        menuIcon = document.getElementsByClassName("header")[0].getElementsByClassName "menu"
         # 切换菜单状态
         $(".header .icon-icon_menu").on "click", ->  #点击菜单按钮
             $(menu).toggleClass "menu_wrapper_show" if basic.getWinSize() < 3  #展开/收起菜单
+            $(menuIcon).toggleClass "menu_active" if basic.getWinSize() < 3  #展开/收起菜单
 
     # 搜索框
     searchForm: ->
