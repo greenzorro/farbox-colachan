@@ -1118,6 +1118,68 @@ input, textarea, button {
 }
 
 
+//****************************  archive  *****************************//
+
+.list .archive {
+	h1 {
+		padding: 0 0 0.5em;
+		text-align: center;
+		font-size: 2em;
+	}
+	ul li {
+		font-size: 1.2em;
+		time {
+			float: left;
+			display: block;
+			width: 3em;
+			line-height: 2.1;
+			font-size: 0.8em;
+			color: $dark2;
+		}
+		a {
+			display: inline-block;
+			margin: 0 0 0 3.5em;
+		}
+	}
+}
+// phone
+@media only screen and (max-width: $phone_landscape-max){
+	.list {
+		.archive {
+			@include flex (1 17.75em);
+			width: 100%;
+			position: relative;
+			.content {
+				padding: 0.95em;
+				box-shadow: inset 0 0 0.1em $dark4;
+				ul li {
+					margin: 0 0 0.5em;
+				}
+			}
+		}
+	}
+}
+// pad and pc
+@media only screen and (min-width: $pad_portrait-min){
+	.list {
+		padding: 1.875em 0;
+		.archive {
+			margin: 0 0 1.875em;
+			background: $bg1;
+			border-radius: 0.2em;
+			box-shadow: 0 0.1em 0.35em $dark3;
+			.content {
+				padding: 2.5em;
+				ul li {
+					padding: 0.8em 0;
+					border-bottom: 1px solid $dark4;
+				}
+			}
+		}
+	}
+}
+
+
 
 
 

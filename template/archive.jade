@@ -1,0 +1,29 @@
+extends base
+block title
+	title= site.title
+
+block header
+	if request.url_without_host == "/"
+		.index_header
+			include include/header
+	else
+		include include/header
+block footer
+	include include/footer
+
+block content
+	.main_wrap
+		.list.clearfix
+			group_type = 'tags' if request.path.strip('/')=='tags' else '-date:year'
+			entries = get_data(type='post',limit=50, sort='desc').group(group_type)
+
+			for sub_title, posts in entries
+				.archive
+					.content
+						h1= "~ " + sub_title + " ~"
+						ul
+							for post in posts
+								li.clearfix
+									time= post.date.format("%m.%d")
+									a(href=post.url, title=post.title)= post.title
+			include include/paginator
