@@ -15,7 +15,7 @@ block content
 	.main_wrap
 		.list.clearfix
 			group_type = 'tags' if request.path.strip('/')=='tags' else '-date:year'
-			entries = get_data(type='post',limit=50, sort='desc').group(group_type)
+			entries = get_data(type='post',limit=300, sort='desc').group(group_type)
 
 			for sub_title, posts in entries
 				.archive

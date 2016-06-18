@@ -1173,6 +1173,9 @@ input, textarea, button {
 				ul li {
 					padding: 0.8em 0;
 					border-bottom: 1px solid $dark4;
+					&:last-of-type {
+						border: none;
+					}
 				}
 			}
 		}
