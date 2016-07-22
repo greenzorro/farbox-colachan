@@ -697,8 +697,11 @@ input, textarea, button {
 		padding: 0 0 0 0.5em;
 		border-left: 0.2em solid $primary2;
 	}
-	p, pre, iframe { margin: 0 0 1.5em;}
-	.xiami-player { margin: 0 0 1.5em;} //虾米音乐播放器
+	p, pre, iframe {
+		line-height: 1.6;
+		margin: 0 0 1.5em;
+	}
+	.xiami-player { margin: 0 0 1.5em;} //虾米音乐播放组件
 	i, em { font-style: italic;}
 	b, strong { font-weight: bold;}
 	ul {
@@ -1043,14 +1046,14 @@ input, textarea, button {
 			p, h1, h2, h3, h4, h5, h6, ul, ol, blockquote {
 				margin-left: 15px;
 				margin-right: 15px;}
-			.xiami-player { //虾米音乐播放器
+			.xiami-player { //虾米音乐播放组件
 				margin-left: 15px;
 				margin-right: 15px;}
 			p.img_inside {
 				margin-left: 0;
 				margin-right: 0;}
 			img { width: 100%;}
-			.xiami-player img { width: auto;} //虾米音乐播放器
+			.xiami-player img { width: auto;} //虾米音乐播放组件
 		}
 		.info {
 			.date {
