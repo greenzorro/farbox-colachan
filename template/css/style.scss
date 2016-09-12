@@ -24,7 +24,7 @@ $accent2: #f5c5bf;
 $accent3: #3c3d60;
 $shadow1: 0 1px 4px rgba(0,0,0,0.35);
 $shadow2: 0 4px 4px rgba(0,0,0,0.35);
-$bg_img: url(http://7xib7m.com1.z0.glb.clouddn.com/img/webassets/images/bg.jpg);
+$bg_img: url(/template/images/bg.jpg);
 $easing1: cubic-bezier(0.15, 0.95, 0.41, 0.95);
 
 
@@ -504,7 +504,7 @@ input, textarea, button {
 			display: none;
 			width: 100%;
 			padding: 3em 0 0;
-			background: url(http://7xib7m.com1.z0.glb.clouddn.com/img/webassets/images/slogen.png) no-repeat center top;
+			background: url(/template/images/slogen.png) no-repeat center top;
 			background-size: 405px 53px;
 			text-align: center;
 			color: $light1;
@@ -543,7 +543,7 @@ input, textarea, button {
 						.img {
 							width: 12em;
 							height: 12em;
-							background: url(http://7xib7m.com1.z0.glb.clouddn.com/img/webassets/images/qrcode.png) no-repeat center center;
+							background: url(/template/images/qrcode.png) no-repeat center center;
 							background-size: cover;}
 						p {
 							line-height: 1.4;
@@ -571,7 +571,7 @@ input, textarea, button {
 				border-radius: 0.2em;
 				a {
 					display: inline-block;
-					background: url(http://7xib7m.com1.z0.glb.clouddn.com/img/webassets/images/social.png) no-repeat;
+					background: url(/template/images/social.png) no-repeat;
 					background-size: 120px 24px;
 					width: 1.5em;
 					height: 1.5em;
@@ -632,7 +632,7 @@ input, textarea, button {
 			width: 40px;
 			height: 46px;
 			margin: 0 auto 1em;
-			background: url(http://7xib7m.com1.z0.glb.clouddn.com/img/webassets/images/logo.png) no-repeat center center;
+			background: url(/template/images/logo.png) no-repeat center center;
 			background-size: 40px 46px;}
 		p {
 			line-height: 2em;
@@ -1571,12 +1571,12 @@ input, textarea, button {
 
 #about {
 	.intro {
-		background: url(http://7xib7m.com1.z0.glb.clouddn.com/img/webassets/images/bg_about.jpg) no-repeat center center;
+		background: url(/template/images/bg_about.jpg) no-repeat center center;
 		background-size: cover;
 		@include animation (fadein 1.2s $easing1 both);
 		.avatar {
 			margin: 0 auto;
-			background: url(http://7xib7m.com1.z0.glb.clouddn.com/img/webassets/images/avatar.png) no-repeat center center;
+			background: url(/template/images/avatar.png) no-repeat center center;
 			background-size: cover;
 			border-radius: 50%;}
 		p {
@@ -1953,7 +1953,7 @@ a { @include transition (color 0.5s $easing1, background-color 0.5s $easing1);}
 		line-height: 1.2em;
 		font-size: 5em;}
 	.img {
-		background: url(http://7xib7m.com1.z0.glb.clouddn.com/img/webassets/images/not_found.png) no-repeat center center;
+		background: url(/template/images/not_found.png) no-repeat center center;
 		background-size: contain;}
 	a {
 		display: block;
@@ -2053,7 +2053,7 @@ body {
 	#baidu_share, .bdselect_share_content, .sr-bdimgshare {
 		.bdshare-button-style1-32, .bdshare-button-style0-16 {
 			a {
-				background: url(http://7xib7m.com1.z0.glb.clouddn.com/img/webassets/images/icon_share.png) no-repeat;
+				background: url(/template/images/icon_share.png) no-repeat;
 				&:hover {
 					opacity: 1;
 					position: relative;
@@ -2076,7 +2076,7 @@ body {
 		}
 		.bdshare-button-style1-32 {
 			a {
-				background: url(http://7xib7m.com1.z0.glb.clouddn.com/img/webassets/images/icon_share.png) no-repeat;
+				background: url(/template/images/icon_share.png) no-repeat;
 				background-size: 128px 64px;
 			}
 			.bds_tsina {
@@ -2104,7 +2104,7 @@ body {
 		.bdshare-button-style0-16 {
 			a {
 				padding-left: 16px;
-				background: url(http://7xib7m.com1.z0.glb.clouddn.com/img/webassets/images/icon_share.png) no-repeat;
+				background: url(/template/images/icon_share.png) no-repeat;
 				background-size: 64px 32px;
 			}
 			.bds_tsina {
